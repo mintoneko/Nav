@@ -40,11 +40,11 @@
   - SpringBoot
   - SpringSecurit
 - **环境**
-  - JDK: 22
+  - JDK: 17
   - Maven: 3.9.9
   - node：v20.18.1
   - npm: 11.0.0
-  - MySQL: 9.0.1
+  - MySQL: 8.0.36
   - Redis: 7.2.6
 - **网站部署**
   - caddy：v2.8.4
