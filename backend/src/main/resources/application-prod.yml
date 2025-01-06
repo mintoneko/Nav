@@ -1,12 +1,12 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://38.47.121.89:3306/gonav?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT+8
+    url: "jdbc:mysql://38.47.:3306/gonav?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT+8"
     username: root
-    password: root
+    password: "20040225abcA+"
   mail:
-    host: smtp.126.com
-    username: ruanzhutool@126.com
+    host: smtp.qq.com
+    username: 2789221517@qq.com
     password: TJBYKZIDQIIFGSNP
     default-encoding: UTF-8
 login:
@@ -16,11 +16,12 @@ login:
   LinuxDo:
     clientId: 1Yr9VGywAcdNrdORgCVn2BavUbvdAcEx
     clientSecret: 2u8t7pB9Vfoz8FIfgKK6rd1c3cZwaINE
-    redirectUri: http://127.0.0.1/auth/linux-do/callback
+    redirectUri: http://test.lolis.moe/auth/linux-do/callback
   GitHub:
-    clientId: Ov23li7XYGfwUUzkXGza
-    clientSecret: a443d825325c00e63e5afc1181cf9347f839268e
-    redirectUri: http://127.0.0.1/auth/github/callback
+    clientId: Ov23lia25wyB2WWr3eyi
+    clientSecret: 827fb897f682c3cb5ee61d6d43b4a44d023e3d38
+    redirectUri: https://test.lolis.moe/auth/github/callback
 admin:
   email:
-    - rongxingyang@outlook.com
+    - mobaisilent@gmail.com
+    - 2789221517@qq.com
