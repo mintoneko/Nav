@@ -7,14 +7,14 @@ spring:
   application:
     name: nav-server
   error:
-#    whitelabel:
-#      enabled: false
-#      include-message: never
-#      include-binding-errors: never
+    whitelabel:
+      enabled: false
+      include-message: never
+      include-binding-errors: never
   data:
     redis:
       port: 6379
-      host: dogyun-jp.lolis.moe
+      host: 38.47.121.89
   servlet:
     multipart:
       enabled: true
@@ -26,5 +26,8 @@ mybatis:
     map-underscore-to-camel-case: true
 logging:
   level:
-    org.springframework.security: DEBUG
-    com.dawn.gonav.authentication: DEBUG
+    org.springframework.security: INFO
+    com.dawn.nav.authentication: INFO
+    org.springframework: INFO
+    com.zaxxer.hikari: INFO
+    login.jwt: INFO  # 确保这是一个有效的包名或记录器名称
