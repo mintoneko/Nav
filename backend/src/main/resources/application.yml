@@ -30,4 +30,4 @@ logging:
     com.dawn.nav.authentication: INFO
     org.springframework: INFO
     com.zaxxer.hikari: INFO
-    login.jwt: INFO  # 确保这是一个有效的包名或记录器名称
+    login.jwt: INFO
