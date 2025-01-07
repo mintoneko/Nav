@@ -1,6 +1,5 @@
 import request from '@/utils/request'
 
-// 测试接口
 const testApi = {
   default: () => {
     return request.get('/default/hello')

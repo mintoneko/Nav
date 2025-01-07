@@ -162,6 +162,11 @@ services:
   - 后端添加认证模块authentication
   - 后端完成model层数据库和前端数据映射
   - 添加报错公共处理类
+  
+- 25.1.6
+
+  - 修改application
+  - 简要测试
 
 ### ☑️待完成
 

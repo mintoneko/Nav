@@ -1,3 +1,4 @@
+<!-- src/views/OAuthCallback.vue -->
 <template>
   <div class="container">
     <h1>正在处理您的请求，请稍候。</h1>
@@ -80,11 +81,9 @@ export default {
   align-items: center;
   height: 100vh;
 }
-
 h1 {
   color: #333;
 }
-
 p {
   line-height: 1.6;
 }

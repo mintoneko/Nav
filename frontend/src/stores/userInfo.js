@@ -1,17 +1,22 @@
 import { defineStore } from "pinia";
 import { ref } from 'vue';
 
-// 基于pinia定义Store -> 管理用户信息
-export const useUserInfoStore = defineStore('userInfo',
-  () => {
-    const info = ref({})
-    const setInfo = (newInfo) => {
+export const useUserInfoStore = defineStore(
+  'userInfo', ()=>
+  {
+  // 定义状态相关的内容
+  const info = ref({})
+
+  const setInfo = (newInfo) =>{
       info.value = newInfo
-    }
-    const removeInfo = () => {
+  }
+
+  const removeInfo = () => {
       info.value = {}
-    }
-    return { info, setInfo, removeInfo }
-  },
-  { persist: true }
-)
+  }
+
+  return {info, setInfo, removeInfo}
+}, 
+{
+  persist:true
+})

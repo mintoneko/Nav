@@ -3,6 +3,9 @@
   <div class="login-container">
     <div class="card login-container-card noto-serif-sc-text">
       <div class="card-body">
+        <!-- <div style="text-align: center;">
+          登录
+        </div> -->
         <div class="row login-container-card-type">
           <div @click="changeLoginType(0)" :class="loginType === 0 ? 'col login-type-active' : 'col login-type'">
             密码登录
@@ -71,10 +74,37 @@
             <button class="btn btn-primary col-12" type="submit">登录</button>
           </div>
         </form>
+
+
+        <!-- <div v-if="loginGitHubOrLinuxDo.linuxdo === 'true' && loginGitHubOrLinuxDo.github === 'true'" class="line text-center">
+          第三方登录
+        </div>
+        <div>
+          <div v-if="loginGitHubOrLinuxDo.linuxdo === 'true'" class="col text-center">
+            <img src="@/assets/linuxdo.png" alt="" height="30px">
+            <span @click="loginWithLinuxDo" style="cursor: pointer;">
+              使用LinuxDo账号登录
+            </span>
+          </div>
+          <div v-if="loginGitHubOrLinuxDo.github === 'true'" class="col text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 32 32" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 0C7.16 0 0 7.16 0 16C0 23.08 4.58 29.06 10.94 31.18C11.74 31.32 12.04 30.84 12.04 30.42C12.04 30.04 12.02 28.78 12.02 27.44C8 28.18 6.96 26.46 6.64 25.56C6.46 25.1 5.68 23.68 5 23.3C4.44 23 3.64 22.26 4.98 22.24C6.24 22.22 7.14 23.4 7.44 23.88C8.88 26.3 11.18 25.62 12.1 25.2C12.24 24.16 12.66 23.46 13.12 23.06C9.56 22.66 5.84 21.28 5.84 15.16C5.84 13.42 6.46 11.98 7.48 10.86C7.32 10.46 6.76 8.82 7.64 6.62C7.64 6.62 8.98 6.2 12.04 8.26C13.32 7.9 14.68 7.72 16.04 7.72C17.4 7.72 18.76 7.9 20.04 8.26C23.1 6.18 24.44 6.62 24.44 6.62C25.32 8.82 24.76 10.46 24.6 10.86C25.62 11.98 26.24 13.4 26.24 15.16C26.24 21.3 22.5 22.66 18.94 23.06C19.52 23.56 20.02 24.52 20.02 26.02C20.02 28.16 20 29.88 20 30.42C20 30.84 20.3 31.34 21.1 31.18C27.42 29.06 32 23.06 32 16C32 7.16 24.84 0 16 0V0Z" fill="#24292E"/>
+            </svg>
+            <span @click="loginWithGitHub" style="cursor: pointer;">
+              使用GitHub账号登录
+            </span>
+          </div>
+        </div> -->
         <div  class="line text-center">
           第三方登录
         </div>
         <div>
+          <div  class="col text-center">
+            <img src="@/assets/linuxdo.png" alt="" height="30px">
+            <span @click="loginWithLinuxDo" style="cursor: pointer;">
+              使用LinuxDo账号登录
+            </span>
+          </div>
           <div  class="col text-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 32 32" fill="none">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M16 0C7.16 0 0 7.16 0 16C0 23.08 4.58 29.06 10.94 31.18C11.74 31.32 12.04 30.84 12.04 30.42C12.04 30.04 12.02 28.78 12.02 27.44C8 28.18 6.96 26.46 6.64 25.56C6.46 25.1 5.68 23.68 5 23.3C4.44 23 3.64 22.26 4.98 22.24C6.24 22.22 7.14 23.4 7.44 23.88C8.88 26.3 11.18 25.62 12.1 25.2C12.24 24.16 12.66 23.46 13.12 23.06C9.56 22.66 5.84 21.28 5.84 15.16C5.84 13.42 6.46 11.98 7.48 10.86C7.32 10.46 6.76 8.82 7.64 6.62C7.64 6.62 8.98 6.2 12.04 8.26C13.32 7.9 14.68 7.72 16.04 7.72C17.4 7.72 18.76 7.9 20.04 8.26C23.1 6.18 24.44 6.62 24.44 6.62C25.32 8.82 24.76 10.46 24.6 10.86C25.62 11.98 26.24 13.4 26.24 15.16C26.24 21.3 22.5 22.66 18.94 23.06C19.52 23.56 20.02 24.52 20.02 26.02C20.02 28.16 20 29.88 20 30.42C20 30.84 20.3 31.34 21.1 31.18C27.42 29.06 32 23.06 32 16C32 7.16 24.84 0 16 0V0Z" fill="#24292E"/>
@@ -112,7 +142,6 @@ import {useRouter} from "vue-router";
 import { useTokenStore } from "@/stores/token";
 import { useUserInfoStore } from "@/stores/userInfo";
 import settingApi from "@/api/setting";
-
 export default {
   components: {
     TopBar,
@@ -131,16 +160,19 @@ export default {
     const isSending = ref(false);
     const countdown = ref(60);
     const timer = ref(null);
-    const tokenStore = useTokenStore();
+    const tokenStore = useTokenStore(); // 获取 store 实例
     const sendButtonText = computed(() => {
       return isSending.value ? `${countdown.value}s 后重试` : '发送';
     });
-    const loginGitHub = ref({
+    const loginGitHubOrLinuxDo = ref({
       github: '',
+      linuxdo: '',
     })
     const getLoginSetting = async () => {
       const res1 = await settingApi.getSetting('login_github')
-      loginGitHub.value.github = res1.data.valueVarchar
+      loginGitHubOrLinuxDo.value.github = res1.data.valueVarchar
+      const res2 = await settingApi.getSetting('login_linuxdo')
+      loginGitHubOrLinuxDo.value.linuxdo = res2.data.valueVarchar
     }
     onMounted(() => {
       getLoginSetting()
@@ -217,6 +249,21 @@ export default {
     const changeLoginType = (val) => {
       loginType.value = val;
     };
+    // LinuxDo OAuth2配置
+    const LINUXDO_CLIENT_ID = import.meta.env.VITE_LINUXDO_CLIENT_ID; // 替换为你的client_id
+    const LINUXDO_REDIRECT_URI = import.meta.env.VITE_LINUXDO_REDIRECT_URI; // 替换为你的重定向URI
+    const LINUXDO_AUTHORIZATION_ENDPOINT = import.meta.env.VITE_LINUXDO_AUTHORIZATION_ENDPOINT;
+
+    const loginWithLinuxDo = () => {
+      const state = generateRandomString(16); // 生成随机状态参数以防止CSRF
+      localStorage.setItem("oauth_state", state); // 存储状态以便回调时验证
+      const authUrl = `${LINUXDO_AUTHORIZATION_ENDPOINT}?response_type=code&client_id=${encodeURIComponent(
+        LINUXDO_CLIENT_ID
+      )}&redirect_uri=${encodeURIComponent(
+        LINUXDO_REDIRECT_URI
+      )}&state=${state}`;
+      window.location.href = authUrl;
+    };
     // GitHub OAuth2配置
     const GITHUB_CLIENT_ID = import.meta.env.VITE_GITHUB_CLIENT_ID; // 替换为你的client_id
     const GITHUB_REDIRECT_URI = import.meta.env.VITE_GITHUB_REDIRECT_URI; // 替换为你的重定向URI
@@ -255,8 +302,9 @@ export default {
       sendCode,
       handleLoginCode,
       handleLoginPassword,
+      loginWithLinuxDo,
       loginWithGitHub,
-      loginGitHub
+      loginGitHubOrLinuxDo
     };
   },
 };

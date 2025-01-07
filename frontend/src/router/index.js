@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory} from 'vue-router';
 import { useTokenStore } from '@/stores/token';
 import {useUserInfoStore} from '@/stores/userInfo'
 // 导入路由页面的配置
@@ -19,6 +19,14 @@ router.beforeEach((to, from, next) => {
   } else {
     next();
   }
+  // const userInfoStore = useUserInfoStore();
+  // const notBlank = tokenStore.token.token == null || tokenStore.token.token == "" || userInfoStore.role == null || userInfoStore.role === 0 ? false : true;
+  // if (to.path == "/login" && notBlank) {
+  //   // 已登录，重定向到主页
+  //   next({ path: "/" });
+  // } else {
+  //   next();
+  // }
 });
 
 export default router;

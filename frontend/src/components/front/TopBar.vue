@@ -1,17 +1,34 @@
-<!-- 顶部框架显示 -->
 <template>
   <div class="header-navbar-container">
     <nav class="navbar navbar-expand-lg bg-body-tertiary header-navbar-top">
       <div class="container-fluid header-navbar-top-content">
+        <!-- 带有默认Logo和网站标题 -->
+        <!-- <div v-if="site.name === '' && site.logo === ''" class="d-flex align-items-center">
+          <img class="img-navbar-brand" src="@/assets/logo.png" alt="导航站" width="36" height="36" />
+          <router-link class="navbar-brand ms-2 noto-serif-sc-brand"  to="/">Go导航</router-link>
+        </div>
+        <div v-else class="d-flex align-items-center">
+          <img v-if="site.logo !== ''" class="img-navbar-brand" :src="site.logo" alt="导航站" width="36" height="36" />
+          <router-link v-if="site.name !== ''" class="navbar-brand ms-2 noto-serif-sc-brand"  to="/">{{ site.name }}</router-link>
+        </div> -->
+        <!-- 不带有默认Logo和网站标题 -->
+        <!-- <div class="d-flex align-items-center">
+          <img v-if="site.logo !== ''" class="img-navbar-brand" :src="site.logo" alt="导航站" width="36" height="36" />
+          <router-link v-if="site.name !== ''" class="navbar-brand ms-2 noto-serif-sc-brand"  to="/">{{ site.name }}</router-link>
+        </div> -->
+        <!-- 只使用默认Logo和网站标题 -->
         <div class="d-flex align-items-center">
           <img class="img-navbar-brand" src="@/assets/logo.png" alt="导航站" width="36" height="36" />
-          <router-link class="navbar-brand ms-2 noto-serif-sc-brand"  to="/">Nav导航</router-link>
+          <router-link class="navbar-brand ms-2 noto-serif-sc-brand"  to="/">Go导航</router-link>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- <li class="nav-item header-navbar-top-item">
+              <router-link class="nav-link noto-serif-sc-text" aria-current="page" to="/hello">Hello</router-link>
+            </li> -->
             <li v-for="item in topMenus" class="nav-item header-navbar-top-item">
               <a class="nav-link noto-serif-sc-text" :href="item.url"> {{ item.title }} </a>
             </li>
@@ -46,11 +63,11 @@
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
-import { useRouter } from 'vue-router';
 import {useTokenStore} from "@/stores/token.js";
 import { useUserInfoStore } from "@/stores/userInfo.js";
+import { useRouter } from 'vue-router';
 import menuApi from '@/api/menu.js';
+import { onMounted, ref } from "vue";
 import settingApi from "@/api/setting";
 
 export default {

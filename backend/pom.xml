@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.dawn</groupId>
-    <artifactId>nav-server</artifactId>
+    <artifactId>gonav-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>gonav-server</name>
     <description>gonav-server</description>

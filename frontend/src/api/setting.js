@@ -1,6 +1,5 @@
 import request from '@/utils/request'
 
-// 网站管理（设置管理）
 const settingApi = {
   // --------------------------------- 公开 ----------------------------------
   getSetting: (key) => {
