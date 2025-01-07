@@ -4,7 +4,7 @@
     <div class="row">
       <!-- 左侧导航栏：在大屏幕为横向布局，小屏幕为纵向布局 -->
       <LeftBar class="col-12 col-sm-1 d-block d-sm-flex" style="padding-right: 0;" :class="leftBarClass"></LeftBar>
-      
+
       <!-- 主体内容区域 -->
       <div class="col-12 col-sm" style="margin-top: 66px;">
         <router-view></router-view>

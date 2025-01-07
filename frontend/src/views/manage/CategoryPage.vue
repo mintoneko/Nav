@@ -5,11 +5,12 @@
       <div class="col">
         <button class="btn btn-primary" @click="openModal('addCategoryModal')">添加分类</button>
       </div>
-      
+
       <!-- 每页条数选择 -->
       <div class="mb-3 d-flex justify-content-end col">
-        <label for="pageSizeSelect" class="me-2"  style="line-height: 38px;">每页显示:</label>
-        <select id="pageSizeSelect" class="form-select w-auto" v-model="getCategoryPageListData.pageSize" @change="changePageSize">
+        <label for="pageSizeSelect" class="me-2" style="line-height: 38px;">每页显示:</label>
+        <select id="pageSizeSelect" class="form-select w-auto" v-model="getCategoryPageListData.pageSize"
+          @change="changePageSize">
           <option value="10">10</option>
           <option value="20">20</option>
           <option value="30">30</option>
@@ -19,7 +20,8 @@
     </div>
 
     <!-- 添加分类模态框 -->
-    <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel"
+      aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -35,10 +37,10 @@
               <div class="mb-3">
                 <label for="parentId" class="form-label">父分类</label>
                 <select v-model="categoryDTO.parentId" class="form-select" id="parentId">
-                    <option value="" disabled>请选择父分类</option>
-                    <option v-for="category in categoryNowList" :key="category.id" :value="category.id">
-                        {{ category.name }} <!-- 假设每个分类对象都有 id 和 name 属性 -->
-                    </option>
+                  <option value="" disabled>请选择父分类</option>
+                  <option v-for="category in categoryNowList" :key="category.id" :value="category.id">
+                    {{ category.name }} <!-- 假设每个分类对象都有 id 和 name 属性 -->
+                  </option>
                 </select>
               </div>
               <div class="mb-3">
@@ -47,7 +49,8 @@
               </div>
               <div class="mb-3">
                 <label for="description" class="form-label">描述</label>
-                <input v-model="categoryDTO.description" type="text" class="form-control" id="description" placeholder="输入分类描述">
+                <input v-model="categoryDTO.description" type="text" class="form-control" id="description"
+                  placeholder="输入分类描述">
               </div>
               <div class="mb-3">
                 <label for="weight" class="form-label">权重</label>
@@ -82,7 +85,7 @@
         </thead>
         <tbody>
           <tr v-for="(item, index) in categoryList">
-            <th scope="row">{{index + 1}}</th>
+            <th scope="row">{{ index + 1 }}</th>
             <td>{{ item.id }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.parentName }}</td>
@@ -92,59 +95,67 @@
               <span v-else class="badge bg-danger">禁用</span>
             </td>
             <td>
-              <button class="btn btn-primary btn-sm" @click="categoryDTO=item;openModal('updateCategoryModal')">编辑</button>
+              <button class="btn btn-primary btn-sm"
+                @click="categoryDTO = item; openModal('updateCategoryModal')">编辑</button>
               <!-- 添加编辑分类模态框 -->
-              <div class="modal fade text-start" id="updateCategoryModal" tabindex="-1" aria-labelledby="updateCategoryModalLabel" aria-hidden="true" @click="getCategoryPageList()">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="addCategoryModalLabel">编辑分类</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="categoryDTO=origincategoryDTO"></button>
-                      </div>
-                      <div class="modal-body">
-                        <form @submit.prevent="submitUpdateCategory">
-                          <!-- <div class="mb-3">
+              <div class="modal fade text-start" id="updateCategoryModal" tabindex="-1"
+                aria-labelledby="updateCategoryModalLabel" aria-hidden="true" @click="getCategoryPageList()">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="addCategoryModalLabel">编辑分类</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        @click="categoryDTO = origincategoryDTO"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form @submit.prevent="submitUpdateCategory">
+                        <!-- <div class="mb-3">
                             <label for="parentId" class="form-label">父分类ID</label>
                             <input v-model="categoryDTO.parentId" type="number" class="form-control" id="parentId" placeholder="输入父分类ID">
                           </div> -->
-                          <div class="mb-3">
-                              <label for="parentId" class="form-label">父分类</label>
-                              <select v-model="categoryDTO.parentId" class="form-select" id="parentId">
-                                  <option value="" disabled>请选择父分类</option>
-                                  <option v-for="category in categoryNowList" :key="category.id" :value="category.id">
-                                      {{ category.name }} <!-- 假设每个分类对象都有 id 和 name 属性 -->
-                                  </option>
-                              </select>
-                          </div>
+                        <div class="mb-3">
+                          <label for="parentId" class="form-label">父分类</label>
+                          <select v-model="categoryDTO.parentId" class="form-select" id="parentId">
+                            <option value="" disabled>请选择父分类</option>
+                            <option v-for="category in categoryNowList" :key="category.id" :value="category.id">
+                              {{ category.name }} <!-- 假设每个分类对象都有 id 和 name 属性 -->
+                            </option>
+                          </select>
+                        </div>
 
-                          <div class="mb-3">
-                            <label for="name" class="form-label">分类名称</label>
-                            <input v-model="categoryDTO.name" type="text" class="form-control" id="name" placeholder="输入分类名称">
-                          </div>
-                          <div class="mb-3">
-                            <label for="description" class="form-label">描述</label>
-                            <input v-model="categoryDTO.description" type="text" class="form-control" id="description" placeholder="输入分类描述">
-                          </div>
-                          <div class="mb-3">
-                            <label for="weight" class="form-label">权重</label>
-                            <input v-model="categoryDTO.weight" type="number" class="form-control" id="weight" placeholder="输入权重">
-                          </div>
-                          <div class="mb-3">
-                            <label for="status" class="form-label">状态</label>
-                            <select v-model="categoryDTO.status" class="form-select" id="status">
-                              <option value="1">启用</option>
-                              <option value="0">禁用</option>
-                            </select>
-                          </div>
-                          <button type="submit" class="btn btn-primary">确认修改</button>
-                        </form>
-                      </div>
+                        <div class="mb-3">
+                          <label for="name" class="form-label">分类名称</label>
+                          <input v-model="categoryDTO.name" type="text" class="form-control" id="name"
+                            placeholder="输入分类名称">
+                        </div>
+                        <div class="mb-3">
+                          <label for="description" class="form-label">描述</label>
+                          <input v-model="categoryDTO.description" type="text" class="form-control" id="description"
+                            placeholder="输入分类描述">
+                        </div>
+                        <div class="mb-3">
+                          <label for="weight" class="form-label">权重</label>
+                          <input v-model="categoryDTO.weight" type="number" class="form-control" id="weight"
+                            placeholder="输入权重">
+                        </div>
+                        <div class="mb-3">
+                          <label for="status" class="form-label">状态</label>
+                          <select v-model="categoryDTO.status" class="form-select" id="status">
+                            <option value="1">启用</option>
+                            <option value="0">禁用</option>
+                          </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">确认修改</button>
+                      </form>
                     </div>
                   </div>
                 </div>
-              <button class="btn btn-danger btn-sm" @click="categoryDTO=item;openModal('deleteCategoryModal')" style="margin-left: 5px;">删除</button>
+              </div>
+              <button class="btn btn-danger btn-sm" @click="categoryDTO = item; openModal('deleteCategoryModal')"
+                style="margin-left: 5px;">删除</button>
               <!-- 添加编辑分类模态框 -->
-              <div class="modal fade text-start" id="deleteCategoryModal" tabindex="-1" aria-labelledby="deleteCategoryModalLabel" aria-hidden="true" @click="getCategoryPageList()">
+              <div class="modal fade text-start" id="deleteCategoryModal" tabindex="-1"
+                aria-labelledby="deleteCategoryModalLabel" aria-hidden="true" @click="getCategoryPageList()">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -170,7 +181,8 @@
           <li class="page-item" :class="{ disabled: getCategoryPageListData.pageNum === 1 }">
             <a class="page-link" href="#" @click.prevent="changePage(getCategoryPageListData.pageNum - 1)">上一页</a>
           </li>
-          <li class="page-item" v-for="page in totalPages" :key="page" :class="{ active: page === getCategoryPageListData.pageNum }">
+          <li class="page-item" v-for="page in totalPages" :key="page"
+            :class="{ active: page === getCategoryPageListData.pageNum }">
             <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
           </li>
           <li class="page-item" :class="{ disabled: getCategoryPageListData.pageNum === totalPages }">
@@ -183,7 +195,7 @@
 </template>
 
 <script>
-import { ref,onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import categoryApi from '@/api/category.js';
 import { Modal } from 'bootstrap';
 import alertUtil from "@/utils/alert";
@@ -284,7 +296,7 @@ export default {
         console.log(res);
         categoryList.value = res.data.items;
         console.log(categoryList.value);
-        totalPages.value = parseInt(res.data.total / getCategoryPageListData.value.pageSize)+1;
+        totalPages.value = parseInt(res.data.total / getCategoryPageListData.value.pageSize) + 1;
       } catch (error) {
         console.error(error);
       }

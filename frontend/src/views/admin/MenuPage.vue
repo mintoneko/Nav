@@ -44,7 +44,8 @@
     <div class="accordion accordion-flush" id="accordionFlushExample" style="margin-top: 30px;">
       <div class="accordion-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
             顶部导航菜单
           </button>
         </h2>
@@ -80,7 +81,8 @@
       </div>
       <div class="accordion-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
             友情链接
           </button>
         </h2>
@@ -124,7 +126,7 @@ import { Modal } from 'bootstrap';
 import alertUtil from "@/utils/alert";
 
 export default {
-  setup(){
+  setup() {
     // 定义数据
     const menuDTO = ref({
       id: null,
@@ -186,7 +188,7 @@ export default {
       };
     };
     // 获取TopMenu
-    const getTopMenu = async() => {
+    const getTopMenu = async () => {
       try {
         const res = await menuApi.getMenuList(0);
         menuTopList.value = res.data;
@@ -195,7 +197,7 @@ export default {
       }
     }
     // 获取BottomMenu
-    const getBottomMenu = async() => {
+    const getBottomMenu = async () => {
       try {
         const res = await menuApi.getMenuList(1);
         menuBottomList.value = res.data;
@@ -207,7 +209,7 @@ export default {
       getTopMenu();
       getBottomMenu();
     });
-    return{
+    return {
       menuDTO,
       submitMenu,
       openModal,

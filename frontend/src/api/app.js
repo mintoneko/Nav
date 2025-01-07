@@ -34,7 +34,7 @@ const appApi = {
       }
     });
   },
-  
+
   // --------------------------------- 用户 ----------------------------------
   downLoadApps: () => {
     return request.post('/user/app/download', null, {
@@ -64,14 +64,14 @@ const appApi = {
     });
   },
   deleteApp: (id) => {
-    return request.delete('/user/app', {params:{"id":id}})
+    return request.delete('/user/app', { params: { "id": id } })
   },
   updateApp: (data) => {
     return request.post('/user/app', data)
   },
   // -------------------------------- 超级管理 --------------------------------
   getAllCategory: (pageNum, pageSize) => {
-    return request.get('/admin/category',{
+    return request.get('/admin/category', {
       params: {
         pageNum,
         pageSize
@@ -79,7 +79,7 @@ const appApi = {
     })
   },
   deleteCategoryAdmin: (id) => {
-    return request.delete('/admin/category', {params:{"id":id}})
+    return request.delete('/admin/category', { params: { "id": id } })
   },
 }
 

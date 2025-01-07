@@ -2,8 +2,9 @@
   <div class="container mt-4" style="margin: 0px;">
     <!-- 每页条数选择 -->
     <div class="mb-3 d-flex justify-content-start col">
-      <label for="pageSizeSelect" class="me-2"  style="line-height: 38px;">每页显示:</label>
-      <select id="pageSizeSelect" class="form-select w-auto" v-model="getCategoryPageListData.pageSize" @change="changePageSize">
+      <label for="pageSizeSelect" class="me-2" style="line-height: 38px;">每页显示:</label>
+      <select id="pageSizeSelect" class="form-select w-auto" v-model="getCategoryPageListData.pageSize"
+        @change="changePageSize">
         <option value="10">10</option>
         <option value="20">20</option>
         <option value="30">30</option>
@@ -27,7 +28,7 @@
         </thead>
         <tbody>
           <tr v-for="(item, index) in categoryList">
-            <th scope="row">{{index + 1}}</th>
+            <th scope="row">{{ index + 1 }}</th>
             <td>{{ item.id }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.parentName }}</td>
@@ -39,9 +40,11 @@
             <td>{{ item.createUser }}</td>
             <td>
               <!-- TODO 删除分类 -->
-              <button class="btn btn-danger btn-sm" @click="categoryDTO=item;openModal('deleteCategoryModal' + item.id)">删除</button>
+              <button class="btn btn-danger btn-sm"
+                @click="categoryDTO = item; openModal('deleteCategoryModal' + item.id)">删除</button>
               <!-- 添加编辑分类模态框 -->
-              <div class="modal fade text-start" :id="'deleteCategoryModal' + item.id" tabindex="-1" aria-labelledby="deleteCategoryModalLabel" aria-hidden="true" @click="getCategoryPageList()">
+              <div class="modal fade text-start" :id="'deleteCategoryModal' + item.id" tabindex="-1"
+                aria-labelledby="deleteCategoryModalLabel" aria-hidden="true" @click="getCategoryPageList()">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -49,7 +52,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      确定删除分类  {{ item.name }} ？
+                      确定删除分类 {{ item.name }} ？
                       <form @submit.prevent="submitDeleteCategory">
                         <button type="submit" class="btn btn-primary" style="float: inline-end;">确认删除</button>
                       </form>
@@ -67,7 +70,8 @@
           <li class="page-item" :class="{ disabled: getCategoryPageListData.pageNum === 1 }">
             <a class="page-link" href="#" @click.prevent="changePage(getCategoryPageListData.pageNum - 1)">上一页</a>
           </li>
-          <li class="page-item" v-for="page in totalPages" :key="page" :class="{ active: page === getCategoryPageListData.pageNum }">
+          <li class="page-item" v-for="page in totalPages" :key="page"
+            :class="{ active: page === getCategoryPageListData.pageNum }">
             <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
           </li>
           <li class="page-item" :class="{ disabled: getCategoryPageListData.pageNum === totalPages }">
@@ -169,7 +173,7 @@ export default {
     const getCategoryPageList = async () => {
       try {
         const res = await categoryApi.getAllCategory(
-          getCategoryPageListData.value.pageNum, 
+          getCategoryPageListData.value.pageNum,
           getCategoryPageListData.value.pageSize,
           getCategoryPageListData.value.searchContent,
           getCategoryPageListData.value.orderBy

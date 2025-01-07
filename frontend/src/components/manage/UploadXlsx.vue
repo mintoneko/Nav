@@ -1,39 +1,21 @@
 <template>
   <div class="row">
     <div class="col">
-      <input
-        type="file"
-        @change="handleFileChange"
-        accept=".xlsx"
-        class="form-control"
-        :disabled="loading"
-      />
+      <input type="file" @change="handleFileChange" accept=".xlsx" class="form-control" :disabled="loading" />
       <small class="form-text text-muted">上传xlsx文件</small>
     </div>
     <div class="col-auto">
-      <button 
-        class="btn btn-success" 
-        @click="uploadFile"
-        :disabled="!selectedFile || loading"
-      >
+      <button class="btn btn-success" @click="uploadFile" :disabled="!selectedFile || loading">
         上传数据
       </button>
     </div>
     <div class="col-auto">
-      <button 
-        class="btn btn-primary" 
-        @click="downloadFile"
-        :disabled="loading"
-      >
+      <button class="btn btn-primary" @click="downloadFile" :disabled="loading">
         下载模板
       </button>
     </div>
     <div class="col-auto">
-      <button 
-        class="btn btn-outline-secondary" 
-        @click="downloadMyData"
-        :disabled="loading"
-      >
+      <button class="btn btn-outline-secondary" @click="downloadMyData" :disabled="loading">
         下载本人数据
       </button>
     </div>
@@ -92,15 +74,15 @@ export default {
           'Authorization': tokenStore.token.token
         }
       })
-      .then(response => {
-        this.handleSuccess(response.data);
-      })
-      .catch(error => {
-        this.handleError(error);
-      })
-      .finally(() => {
-        this.loading = false;  // 结束加载
-      });
+        .then(response => {
+          this.handleSuccess(response.data);
+        })
+        .catch(error => {
+          this.handleError(error);
+        })
+        .finally(() => {
+          this.loading = false;  // 结束加载
+        });
     },
     handleSuccess(response) {
       alertUtil.message('数据上传成功，将自动刷新页面！');
@@ -173,6 +155,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;  /* 确保在最上面 */
+  z-index: 1000;
+  /* 确保在最上面 */
 }
 </style>

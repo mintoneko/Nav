@@ -8,21 +8,23 @@
         <!-- <button class="btn btn-success" @click="openModal('addAppModal')" style="margin-left: 20px;">上传应用</button>
         <button class="btn" style="margin-left: 20px;">下载Excel模板</button>
         <button class="btn" style="margin-left: 20px;">下载本人数据</button> -->
-        
+
       </div>
-      
+
       <!-- 每页条数选择 -->
       <div class="mb-3 d-flex justify-content-end col">
-        <label for="pageSizeSelect" class="me-2"  style="line-height: 38px;">选择分类:</label>
-        <select id="pageSizeSelect" class="form-select w-auto" v-model="getAppPageListData.categoryId" @change="changePageSize">
+        <label for="pageSizeSelect" class="me-2" style="line-height: 38px;">选择分类:</label>
+        <select id="pageSizeSelect" class="form-select w-auto" v-model="getAppPageListData.categoryId"
+          @change="changePageSize">
           <option value='' disabled>请选择分类</option>
           <option value=''>全部分类</option>
           <option v-for="category in categoryNowList" :key="category.id" :value="category.id">
-              {{ category.name }} <!-- 假设每个分类对象都有 id 和 name 属性 -->
+            {{ category.name }} <!-- 假设每个分类对象都有 id 和 name 属性 -->
           </option>
         </select>
-        <label for="pageSizeSelect" class="me-2"  style="line-height: 38px;">每页显示:</label>
-        <select id="pageSizeSelect" class="form-select w-auto" v-model="getAppPageListData.pageSize" @change="changePageSize">
+        <label for="pageSizeSelect" class="me-2" style="line-height: 38px;">每页显示:</label>
+        <select id="pageSizeSelect" class="form-select w-auto" v-model="getAppPageListData.pageSize"
+          @change="changePageSize">
           <option value="10">10</option>
           <option value="20">20</option>
           <option value="30">30</option>
@@ -43,7 +45,8 @@
             <form @submit.prevent="submitApp">
               <div class="mb-3">
                 <label for="add-name" class="form-label">名称</label>
-                <input v-model="appDTO.name" type="text" class="form-control" id="add-name" placeholder="输入APP名称（非必填）">
+                <input v-model="appDTO.name" type="text" class="form-control" id="add-name"
+                  placeholder="输入APP名称（非必填，若报错请手动填写）">
               </div>
               <!-- <div class="mb-3">
                 <label for="add-categoryId" class="form-label">所属分类</label>
@@ -52,10 +55,10 @@
               <div class="mb-3">
                 <label for="add-categoryId" class="form-label">所属分类</label>
                 <select v-model="appDTO.categoryId" class="form-select" id="add-categoryId">
-                    <option value="" disabled>请选择分类</option>
-                    <option v-for="category in categoryNowList" :key="category.id" :value="category.id">
-                        {{ category.name }} <!-- 假设每个分类对象都有 id 和 name 属性 -->
-                    </option>
+                  <option value="" disabled>请选择分类</option>
+                  <option v-for="category in categoryNowList" :key="category.id" :value="category.id">
+                    {{ category.name }} <!-- 假设每个分类对象都有 id 和 name 属性 -->
+                  </option>
                 </select>
               </div>
               <div class="mb-3">
@@ -68,7 +71,8 @@
               </div> -->
               <div class="mb-3">
                 <label for="add-description" class="form-label">描述</label>
-                <input v-model="appDTO.description" type="text" class="form-control" id="add-description" placeholder="输入APP描述（非必填）"></input>
+                <input v-model="appDTO.description" type="text" class="form-control" id="add-description"
+                  placeholder="输入APP描述（非必填，若报错请手动填写）"></input>
               </div>
               <div class="mb-3">
                 <label for="add-weight" class="form-label">权重</label>
@@ -108,7 +112,7 @@
         </thead>
         <tbody>
           <tr v-for="(item, index) in appList">
-            <th scope="row">{{index + 1}}</th>
+            <th scope="row">{{ index + 1 }}</th>
             <td>{{ item.name }}</td>
             <td>{{ item.categoryName }}</td>
             <td>
@@ -126,76 +130,84 @@
             </td>
             <td>{{ item.clickCount }}</td>
             <td>
-              <button class="btn btn-primary btn-sm" @click="appDTO=item;openModal('updateAppModal')">编辑</button>
+              <button class="btn btn-primary btn-sm" @click="appDTO = item; openModal('updateAppModal')">编辑</button>
               <!-- 添加编辑应用模态框 -->
-              <div class="modal fade text-start" id="updateAppModal" tabindex="-1" aria-labelledby="updateAppModalLabel" aria-hidden="true" @click="getAppPageList()">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="addCategoryModalLabel">编辑应用</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="categoryDTO=origincategoryDTO"></button>
-                      </div>
-                      <div class="modal-body">
-                        <form @submit.prevent="submitUpdateApp">
-                          <div class="mb-3">
-                            <label for="name" class="form-label">应用名称</label>
-                            <input v-model="appDTO.name" type="text" class="form-control" id="name" placeholder="输入应用名称">
-                          </div>
-                          <div class="mb-3">
-                            <label for="url" class="form-label">应用地址</label>
-                            <input v-model="appDTO.url" type="text" class="form-control" id="url" placeholder="输入应用地址">
-                          </div>
-                          <div class="mb-3">
-                            <label for="iconUrl" class="form-label">图标</label>
-                            <input v-model="appDTO.iconUrl" type="text" class="form-control" id="iconUrl" placeholder="输入图标地址">
-                          </div>
-                          <!-- <div class="mb-3">
+              <div class="modal fade text-start" id="updateAppModal" tabindex="-1" aria-labelledby="updateAppModalLabel"
+                aria-hidden="true" @click="getAppPageList()">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="addCategoryModalLabel">编辑应用</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        @click="categoryDTO = origincategoryDTO"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form @submit.prevent="submitUpdateApp">
+                        <div class="mb-3">
+                          <label for="name" class="form-label">应用名称</label>
+                          <input v-model="appDTO.name" type="text" class="form-control" id="name" placeholder="输入应用名称">
+                        </div>
+                        <div class="mb-3">
+                          <label for="url" class="form-label">应用地址</label>
+                          <input v-model="appDTO.url" type="text" class="form-control" id="url" placeholder="输入应用地址">
+                        </div>
+                        <div class="mb-3">
+                          <label for="iconUrl" class="form-label">图标</label>
+                          <input v-model="appDTO.iconUrl" type="text" class="form-control" id="iconUrl"
+                            placeholder="输入图标地址">
+                        </div>
+                        <!-- <div class="mb-3">
                             <label for="categoryName" class="form-label">分类</label>
                             <input v-model="appDTO.categoryName" type="text" class="form-control" id="categoryName" disabled>
                           </div> -->
-                          <!-- <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="categoryId" class="form-label">分类</label>
                             <input v-model="appDTO.categoryId" type="number" class="form-control" id="categoryId">
                           </div> -->
-                          <div class="mb-3">
-                            <label for="categoryId" class="form-label">分类</label>
-                            <select v-model="appDTO.categoryId" class="form-select" id="categoryId">
-                                <option value="" disabled>请选择分类</option>
-                                <option v-for="category in categoryNowList" :key="category.id" :value="category.id">
-                                    {{ category.name }} <!-- 假设每个分类对象都有 id 和 name 属性 -->
-                                </option>
-                            </select>
-                          </div>
-                          <div class="mb-3">
-                            <label for="description" class="form-label">描述</label>
-                            <input v-model="appDTO.description" type="text" class="form-control" id="description" placeholder="输入应用描述信息">
-                          </div>
-                          <div class="mb-3">
-                            <label for="weight" class="form-label">权重</label>
-                            <input v-model="appDTO.weight" type="number" class="form-control" id="weight" placeholder="输入权重">
-                          </div>
-                          <div class="mb-3">
-                            <label for="weight" class="form-label">点击数</label>
-                            <input v-model="appDTO.clickCount" type="number" class="form-control" id="clickCount" placeholder="输入点击数" readonly>
-                          </div>
-                          <div class="mb-3">
-                            <label for="status" class="form-label">状态</label>
-                            <select v-model="appDTO.status" class="form-select" id="status">
-                              <option value="1">全部可见</option>
-                              <option value="2">登陆后可见</option>
-                              <option value="3">本人可见</option>
-                              <option value="4">隐藏</option>
-                            </select>
-                          </div>
-                          <button type="submit" class="btn btn-primary">确认修改</button>
-                        </form>
-                      </div>
+                        <div class="mb-3">
+                          <label for="categoryId" class="form-label">分类</label>
+                          <select v-model="appDTO.categoryId" class="form-select" id="categoryId">
+                            <option value="" disabled>请选择分类</option>
+                            <option v-for="category in categoryNowList" :key="category.id" :value="category.id">
+                              {{ category.name }} <!-- 假设每个分类对象都有 id 和 name 属性 -->
+                            </option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="description" class="form-label">描述</label>
+                          <input v-model="appDTO.description" type="text" class="form-control" id="description"
+                            placeholder="输入应用描述信息">
+                        </div>
+                        <div class="mb-3">
+                          <label for="weight" class="form-label">权重</label>
+                          <input v-model="appDTO.weight" type="number" class="form-control" id="weight"
+                            placeholder="输入权重">
+                        </div>
+                        <div class="mb-3">
+                          <label for="weight" class="form-label">点击数</label>
+                          <input v-model="appDTO.clickCount" type="number" class="form-control" id="clickCount"
+                            placeholder="输入点击数" readonly>
+                        </div>
+                        <div class="mb-3">
+                          <label for="status" class="form-label">状态</label>
+                          <select v-model="appDTO.status" class="form-select" id="status">
+                            <option value="1">全部可见</option>
+                            <option value="2">登陆后可见</option>
+                            <option value="3">本人可见</option>
+                            <option value="4">隐藏</option>
+                          </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">确认修改</button>
+                      </form>
                     </div>
                   </div>
                 </div>
-              <button class="btn btn-danger btn-sm" @click="appDTO=item;openModal('deleteAppModal')" style="margin-left: 5px;">删除</button>
+              </div>
+              <button class="btn btn-danger btn-sm" @click="appDTO = item; openModal('deleteAppModal')"
+                style="margin-left: 5px;">删除</button>
               <!-- 添加编辑分类模态框 -->
-              <div class="modal fade text-start" id="deleteAppModal" tabindex="-1" aria-labelledby="deleteAppModalLabel" aria-hidden="true" @click="getAppPageList()">
+              <div class="modal fade text-start" id="deleteAppModal" tabindex="-1" aria-labelledby="deleteAppModalLabel"
+                aria-hidden="true" @click="getAppPageList()">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -221,7 +233,8 @@
           <li class="page-item" :class="{ disabled: getAppPageListData.pageNum === 1 }">
             <a class="page-link" href="#" @click.prevent="changePage(getAppPageListData.pageNum - 1)">上一页</a>
           </li>
-          <li class="page-item" v-for="page in totalPages" :key="page" :class="{ active: page === getAppPageListData.pageNum }">
+          <li class="page-item" v-for="page in totalPages" :key="page"
+            :class="{ active: page === getAppPageListData.pageNum }">
             <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
           </li>
           <li class="page-item" :class="{ disabled: getAppPageListData.pageNum === totalPages }">
@@ -353,7 +366,7 @@ export default {
     const getAppPageList = async () => {
       try {
         const res = await appApi.getAppPageList(
-          getAppPageListData.value.pageNum, 
+          getAppPageListData.value.pageNum,
           getAppPageListData.value.pageSize,
           getAppPageListData.value.categoryId,
           getAppPageListData.value.status,

@@ -5,12 +5,12 @@ spring:
   profiles:
     active: prod # TODO 默认使用 dev 配置
   application:
-    name: gonav-server
+    name: nav-server
   error:
     whitelabel:
       enabled: false
-    include-message: never
-    include-binding-errors: never
+      include-message: never
+      include-binding-errors: never
   data:
     redis:
       port: 6379

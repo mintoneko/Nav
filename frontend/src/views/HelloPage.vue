@@ -1,22 +1,22 @@
 <template>
-    <TopBar></TopBar>
-    <HelloWorld></HelloWorld>
-    <!-- 页面主体内容 -->
-    <div style="margin-top: 100px;">
-      public: {{ hello.publicHello?.data }}
-    </div>
-    <div>
-      user: {{ hello.userHello?.data }}
-    </div>
-    <div>
-      admin: {{ hello.adminHello?.data }}
-    </div>
-    <div>
-      default: {{ hello.defaultHello?.data }}
-    </div>
-    <div>
-      {{ msg }}
-    </div>
+  <TopBar></TopBar>
+  <HelloWorld></HelloWorld>
+  <!-- 页面主体内容 -->
+  <div style="margin-top: 100px;">
+    public: {{ hello.publicHello?.data }}
+  </div>
+  <div>
+    user: {{ hello.userHello?.data }}
+  </div>
+  <div>
+    admin: {{ hello.adminHello?.data }}
+  </div>
+  <div>
+    default: {{ hello.defaultHello?.data }}
+  </div>
+  <div>
+    {{ msg }}
+  </div>
 </template>
 <script>
 import HelloWorld from "@/components/HelloWorld.vue";
@@ -62,6 +62,4 @@ export default {
   }
 }
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>

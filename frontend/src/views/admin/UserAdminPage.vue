@@ -1,7 +1,7 @@
 <template>
   <!-- 每页条数选择 -->
   <div class="mb-3 d-flex justify-content-start col">
-    <label for="pageSizeSelect" class="me-2"  style="line-height: 38px;">每页显示:</label>
+    <label for="pageSizeSelect" class="me-2" style="line-height: 38px;">每页显示:</label>
     <select id="pageSizeSelect" class="form-select w-auto" v-model="userPageListDTO.pageSize" @change="changePageSize">
       <option value="10">10</option>
       <option value="20">20</option>
@@ -26,20 +26,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item,index) in userPageList" :key="index">
+        <tr v-for="(item, index) in userPageList" :key="index">
           <th scope="row">{{ index + 1 }}</th>
-          <td> 
+          <td>
             <span v-if="item.role === 0" style="background-color: grey; color: white;">
-                {{ item.id }}
+              {{ item.id }}
             </span>
             <span v-else-if="item.role === 1">
-                {{ item.id }}
+              {{ item.id }}
             </span>
             <span v-else-if="item.role === 2" style="background-color: antiquewhite;">
-                {{ item.id }}
-            </span> 
+              {{ item.id }}
+            </span>
           </td>
-          <td >
+          <td>
             <a :href="'/nav/' + item.username" target="_blank">{{ item.username }}</a>
           </td>
           <td>{{ item.email }}</td>
@@ -49,16 +49,19 @@
           <td>{{ item.appNum }}</td>
           <td>{{ item.categoryNum }}</td>
           <td>
-            <button type="button" class="btn btn-primary btn-sm" @click="updateRoleData.role = item.role; updateRoleData.userId = item.id" data-bs-toggle="modal" :data-bs-target="'#updateModal'+item.id" >
+            <button type="button" class="btn btn-primary btn-sm"
+              @click="updateRoleData.role = item.role; updateRoleData.userId = item.id" data-bs-toggle="modal"
+              :data-bs-target="'#updateModal' + item.id">
               修改
             </button>
             <!-- 添加编辑分类模态框 -->
-            <div class="modal fade text-start" :id="'updateModal' + item.id" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+            <div class="modal fade text-start" :id="'updateModal' + item.id" tabindex="-1"
+              aria-labelledby="updateModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="addCategoryModalLabel">修改用户状态</h5>
-                    <button type="button"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <form @submit.prevent="submitDeleteCategory">
@@ -73,7 +76,8 @@
                           <option value=2>管理员</option>
                         </select>
                       </div>
-                      <button @click="updateUserRole(updateRoleData.role, updateRoleData.userId)" class="btn btn-primary">确认修改</button>
+                      <button @click="updateUserRole(updateRoleData.role, updateRoleData.userId)"
+                        class="btn btn-primary">确认修改</button>
                     </form>
                   </div>
                 </div>
@@ -89,7 +93,8 @@
         <li class="page-item" :class="{ disabled: userPageListDTO.pageNum === 1 }">
           <a class="page-link" href="#" @click.prevent="changePage(userPageListDTO.pageNum - 1)">上一页</a>
         </li>
-        <li class="page-item" v-for="page in totalPages" :key="page" :class="{ active: page === userPageListDTO.pageNum }">
+        <li class="page-item" v-for="page in totalPages" :key="page"
+          :class="{ active: page === userPageListDTO.pageNum }">
           <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
         </li>
         <li class="page-item" :class="{ disabled: userPageListDTO.pageNum === totalPages }">

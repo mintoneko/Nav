@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dawn.nav.user.mapper.CategoryMapper">
+    <insert id="addCategory" parameterType="com.dawn.nav.model.po.Category">
+        insert into
+            category(
+                 parent_id,
+                 name,
+                 description,
+                 weight,
+                 status,
+                 create_user,
+                 create_time,
+                 update_user,
+                 update_time
+        ) values(
+                 #{parentId},
+                 #{name},
+                 #{description},
+                 #{weight},
+                 #{status},
+                 #{createUser},
+                 #{createTime},
+                 #{updateUser},
+                 #{updateTime}
+        )
+    </insert>
+    <update id="updateCategory" parameterType="com.dawn.nav.model.po.Category">
+        update category
+        <set>
+            <if test="parentId != null">
+                parent_id = #{parentId},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="description != null">
+                description = #{description},
+            </if>
+            <if test="weight != null">
+                weight = #{weight},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="updateUser != null">
+                update_user = #{updateUser},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <select id="findAll" resultType="com.dawn.nav.model.po.Category">
+        select
+            *
+        from category
+        where create_user = #{userId} and status = 1
+        order by weight desc
+    </select>
+
+    <select id="findAllPageVOByUserId" resultType="com.dawn.nav.model.vo.CategoryPageVO">
+        SELECT
+        c.id,
+        c.name,
+        c.description,
+        c.weight,
+        c.status,
+        c.create_user,
+        c.create_time,
+        c.update_user,
+        c.update_time,
+        c.parent_id,
+        p.name AS parentName  <!-- 父分类名称，若无父分类则为null -->
+        FROM category c
+        LEFT JOIN category p ON c.parent_id = p.id  <!-- 左连接获取父分类名称 -->
+        WHERE c.create_user = #{userId}
+        ORDER BY c.weight DESC
+    </select>
+    <select id="findAllPageVOByUserIdAndSearchContent" resultType="com.dawn.nav.model.vo.CategoryPageVO">
+        SELECT
+        c.id,
+        c.name,
+        c.description,
+        c.weight,
+        c.status,
+        c.create_user,
+        c.create_time,
+        c.update_user,
+        c.update_time,
+        c.parent_id,
+        p.name AS parentName  <!-- 父分类名称，若无父分类则为null -->
+        FROM category c
+        LEFT JOIN category p ON c.parent_id = p.id  <!-- 左连接获取父分类名称 -->
+#         WHERE c.create_user = #{userId}
+        <where>
+            <if test="userId != null">
+                c.create_user = #{userId}
+            </if>
+            <if test="searchContent != null">
+                <foreach collection="searchContent" item="item" separator="OR">
+                    c.name LIKE CONCAT('%',#{item},'%') or c.description LIKE CONCAT('%',#{item},'%')
+                </foreach>
+            </if>
+        </where>
+        <if test="orderBy != null">
+            ORDER BY ${orderBy}
+        </if>
+    </select>
+    <delete id="deleteById">
+        delete from category where id = #{id}
+    </delete>
+    <select id="getCategoryById" resultType="com.dawn.nav.model.po.Category">
+        select * from category where id = #{id}
+    </select>
+    <select id="getNowUserCategoryList" resultType="com.dawn.nav.model.po.Category">
+        select * from category where create_user = #{userId}
+    </select>
+</mapper>

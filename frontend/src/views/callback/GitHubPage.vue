@@ -81,9 +81,11 @@ export default {
   align-items: center;
   height: 100vh;
 }
+
 h1 {
   color: #333;
 }
+
 p {
   line-height: 1.6;
 }

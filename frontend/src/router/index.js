@@ -1,6 +1,6 @@
-import { createRouter, createWebHistory} from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import { useTokenStore } from '@/stores/token';
-import {useUserInfoStore} from '@/stores/userInfo'
+import { useUserInfoStore } from '@/stores/userInfo'
 // 导入路由页面的配置
 import routes from './routes'
 

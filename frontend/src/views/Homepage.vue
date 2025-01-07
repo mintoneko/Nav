@@ -13,6 +13,15 @@ export default {
     HelloWorld,
     TopBar,
     ContentRootSection
+  },
+  data() {
+    return {
+      username: null, // 定义一个变量存储路由参数 userId
+    };
+  },
+  created() {
+    // 在组件创建时获取路由参数id
+    this.username = this.$route.params.username;
   }
 }
 </script>

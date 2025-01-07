@@ -6,13 +6,15 @@
   </div>
   <div class="mb-3">
     <label for="siteLogo" class="form-label">网站Logo</label>
-    <input v-model="siteLogo.valueVarchar" type="text" class="form-control" id="siteLogo" placeholder="请输入网站Logo URL地址...">
+    <input v-model="siteLogo.valueVarchar" type="text" class="form-control" id="siteLogo"
+      placeholder="请输入网站Logo URL地址...">
   </div>
   <button class="btn btn-primary"> 修改 </button>
   <h3 style="margin-top: 50px;">页脚设置</h3>
   <div class="mb-3">
     <label for="companyName" class="form-label">公司名称</label>
-    <input v-model="companyName.valueVarchar" type="text" class="form-control" id="companyName" placeholder="请输入公司名称...">
+    <input v-model="companyName.valueVarchar" type="text" class="form-control" id="companyName"
+      placeholder="请输入公司名称...">
   </div>
   <div class="mb-3">
     <label for="icp" class="form-label">ICP备案号</label>
@@ -25,17 +27,20 @@
   <button class="btn btn-primary" @click="updateBottomSetting()"> 修改 </button>
   <h3 style="margin-top: 50px;">登录设置</h3>
   <div class="form-check form-switch">
-    <input v-model="loginGithub.valueVarchar" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+    <input v-model="loginGithub.valueVarchar" class="form-check-input" type="checkbox" role="switch"
+      id="flexSwitchCheckDefault">
     <label class="form-check-label" for="flexSwitchCheckDefault">GitHub登录</label>
   </div>
   <div class="form-check form-switch">
-    <input v-model="loginLinuxdo.valueVarchar" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+    <input v-model="loginLinuxdo.valueVarchar" class="form-check-input" type="checkbox" role="switch"
+      id="flexSwitchCheckChecked" checked>
     <label class="form-check-label" for="flexSwitchCheckChecked">LinuxDo登录</label>
   </div>
   <button class="btn btn-primary" @click="updateLoginSetting()">保存</button>
   <h3 style="margin-top: 50px;">展示设置</h3>
   <div class="form-check form-switch">
-    <input v-model="githubLogo.valueVarchar" class="form-check-input" type="checkbox" role="switch" id="githubLogoCheck">
+    <input v-model="githubLogo.valueVarchar" class="form-check-input" type="checkbox" role="switch"
+      id="githubLogoCheck">
     <label class="form-check-label" for="githubLogoCheck">GitHub Logo</label>
   </div>
   <button class="btn btn-primary" @click="updateGithubLogoSetting(githubLogo)">保存</button>
@@ -124,9 +129,9 @@ export default {
     }
     onMounted(() => {
       getBottomSetting(),
-      getSiteSetting(),
-      getLoginSetting(),
-      getGitHubLogoSetting()
+        getSiteSetting(),
+        getLoginSetting(),
+        getGitHubLogoSetting()
     })
     return {
       companyName,

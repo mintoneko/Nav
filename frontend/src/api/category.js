@@ -25,14 +25,14 @@ const categoryApi = {
     return request.get('/user/category/now');
   },
   deleteCategory: (id) => {
-    return request.delete('/user/category', {params:{"id":id}})
+    return request.delete('/user/category', { params: { "id": id } })
   },
   updateCategory: (data) => {
     return request.post('/user/category', data)
   },
   // -------------------------------- 超级管理 --------------------------------
   getAllCategory: (pageNum, pageSize, searchContent, orderBy) => {
-    return request.get('/admin/category',{
+    return request.get('/admin/category', {
       params: {
         pageNum,
         pageSize,
@@ -42,7 +42,7 @@ const categoryApi = {
     })
   },
   deleteCategoryAdmin: (id) => {
-    return request.delete('/admin/category', {params:{"id":id}})
+    return request.delete('/admin/category', { params: { "id": id } })
   },
 }
 

@@ -26,7 +26,7 @@ import userApi from '@/api/user'
 import alertUtil from "@/utils/alert";
 export default {
   name: 'SettingPage',
-  
+
   setup() {
     const nowUser = ref({
       id: '',
@@ -52,7 +52,7 @@ export default {
     const updateUser = async () => {
       const res = await userApi.updateUser(nowUser.value)
       console.log(res)
-      if(res.code == 0){
+      if (res.code == 0) {
         alertUtil.message('修改成功，部分配置在重新登录后生效。', 'success')
       }
       // getNowUser()

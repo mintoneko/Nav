@@ -4,19 +4,19 @@ const routes = [
     path: '/hello',
     name: 'hello',
     title: '你好',
-    component: () => import('@/views/HelloPage.vue'), 
+    component: () => import('@/views/HelloPage.vue'),
   },
   {
     path: '/',
     name: 'index',
     title: '首页',
-    component: () => import('@/views/HomePage.vue'), 
+    component: () => import('@/views/HomePage.vue'),
   },
   {
     path: '/login',
     name: 'login',
     title: '登录',
-    component: () => import('@/views/login/LoginPage.vue'), 
+    component: () => import('@/views/login/LoginPage.vue'),
   },
   {
     path: '/register',
@@ -41,12 +41,6 @@ const routes = [
     name: 'github-callback',
     title: 'github回调',
     component: () => import('@/views/callback/GitHubPage.vue'),
-  },
-  {
-    path: '/nav/:username',
-    name: 'user-nav',
-    title: '用户导航',
-    component: () => import('@/views/nav/NavPage.vue'),
   },
   {
     path: '/manage',
@@ -114,7 +108,7 @@ const routes = [
           },
         ]
       }
-      
+
     ],
   },
   {
@@ -122,7 +116,7 @@ const routes = [
     name: '404page',
     component: () => import('@/views/404/IndexPage.vue'),
   },
-    // 未知路由重定向
+  // 未知路由重定向
   {
     path: '/:pathMatch(.*)',
     redirect: '/404',
