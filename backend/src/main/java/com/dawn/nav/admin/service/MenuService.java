@@ -6,11 +6,11 @@ import com.dawn.nav.model.po.Menu;
 import java.util.List;
 
 public interface MenuService {
-    void addMenu(MenuDTO menuDTO);
+  void addMenu(MenuDTO menuDTO);
 
-    void delMenu(Integer id);
+  void delMenu(Integer id);
 
-    void updateMenu(MenuDTO menuDTO);
+  void updateMenu(MenuDTO menuDTO);
 
-    List<Menu> listMenu(Integer type);
+  List<Menu> listMenu(Integer type);
 }

@@ -17,52 +17,53 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 public class MenuServiceImpl implements MenuService {
-    private final MenuMapper menuMapper;
-    @Override
-    public void addMenu(MenuDTO menuDTO) {
-        log.info("addMenu:{}", menuDTO);
-        if (menuDTO == null){
-            ExceptionTool.throwException("参数不能为空！");
-        }
-        assert menuDTO != null;
-        if (menuDTO.getType() == null){
-            ExceptionTool.throwException("type 不能为空！");
-        }
-        if (menuDTO.getTitle().isEmpty()){
-            ExceptionTool.throwException("title 不能为空！");
-        }
-        if (menuDTO.getUrl().isEmpty()){
-            ExceptionTool.throwException("url 不能为空！");
-        }
-        Menu menu = CopyUtil.copy(menuDTO, Menu.class);
-        menu.setCreateTime(LocalDateTime.now());
-        menuMapper.addMenu(menu);
-    }
+  private final MenuMapper menuMapper;
 
-    @Override
-    public void delMenu(Integer id) {
-        menuMapper.delMenuById(id);
+  @Override
+  public void addMenu(MenuDTO menuDTO) {
+    log.info("addMenu:{}", menuDTO);
+    if (menuDTO == null) {
+      ExceptionTool.throwException("参数不能为空！");
     }
+    assert menuDTO != null;
+    if (menuDTO.getType() == null) {
+      ExceptionTool.throwException("type 不能为空！");
+    }
+    if (menuDTO.getTitle().isEmpty()) {
+      ExceptionTool.throwException("title 不能为空！");
+    }
+    if (menuDTO.getUrl().isEmpty()) {
+      ExceptionTool.throwException("url 不能为空！");
+    }
+    Menu menu = CopyUtil.copy(menuDTO, Menu.class);
+    menu.setCreateTime(LocalDateTime.now());
+    menuMapper.addMenu(menu);
+  }
 
-    @Override
-    public void updateMenu(MenuDTO menuDTO) {
-        Menu menu = getMenuById(menuDTO.getId());
-        if (menu == null){
-            ExceptionTool.throwException("Menu 不存在！");
-        }
-        menu.setTitle(menuDTO.getTitle());
-        menu.setUrl(menuDTO.getUrl());
-        menu.setType(menuDTO.getType());
-        menu.setWeight(menuDTO.getWeight());
-        menuMapper.updateMenu(menu);
-    }
+  @Override
+  public void delMenu(Integer id) {
+    menuMapper.delMenuById(id);
+  }
 
-    @Override
-    public List<Menu> listMenu(Integer type) {
-        return menuMapper.getByType(type);
+  @Override
+  public void updateMenu(MenuDTO menuDTO) {
+    Menu menu = getMenuById(menuDTO.getId());
+    if (menu == null) {
+      ExceptionTool.throwException("Menu 不存在！");
     }
+    menu.setTitle(menuDTO.getTitle());
+    menu.setUrl(menuDTO.getUrl());
+    menu.setType(menuDTO.getType());
+    menu.setWeight(menuDTO.getWeight());
+    menuMapper.updateMenu(menu);
+  }
 
-    private Menu getMenuById(Integer id){
-        return menuMapper.getById(id);
-    }
+  @Override
+  public List<Menu> listMenu(Integer type) {
+    return menuMapper.getByType(type);
+  }
+
+  private Menu getMenuById(Integer id) {
+    return menuMapper.getById(id);
+  }
 }

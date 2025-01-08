@@ -8,30 +8,30 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TestController {
-    @GetMapping("/public/hello")
-    public Result<String> hello(){
-        return Result.success("hello world public");
-    }
+  @GetMapping("/public/hello")
+  public Result<String> hello() {
+    return Result.success("hello world public");
+  }
 
-    @GetMapping("/user/hello")
-    public Result<String> hello1(){
-        UserLoginDTO userLoginDTO = CurrentUserUtil.getCurrentUser();
-        System.out.println(userLoginDTO.getEmail());
-        System.out.println(userLoginDTO.getId());
-        return Result.success("hello world user" + userLoginDTO.getId());
-    }
+  @GetMapping("/user/hello")
+  public Result<String> hello1() {
+    UserLoginDTO userLoginDTO = CurrentUserUtil.getCurrentUser();
+    System.out.println(userLoginDTO.getEmail());
+    System.out.println(userLoginDTO.getId());
+    return Result.success("hello world user" + userLoginDTO.getId());
+  }
 
-    @GetMapping("/default/hello")
-    public Result<String> hello2(){
-        return Result.success("hello world default");
-    }
+  @GetMapping("/default/hello")
+  public Result<String> hello2() {
+    return Result.success("hello world default");
+  }
 
-    @GetMapping("/admin/hello")
-    public Result<String> hello3(){
-        UserLoginDTO userLoginDTO = CurrentUserUtil.getCurrentUser();
-        System.out.println(userLoginDTO.getEmail());
-        System.out.println(userLoginDTO.getId());
-        return Result.success("hello world admin" + userLoginDTO.getRole() );
-    }
+  @GetMapping("/admin/hello")
+  public Result<String> hello3() {
+    UserLoginDTO userLoginDTO = CurrentUserUtil.getCurrentUser();
+    System.out.println(userLoginDTO.getEmail());
+    System.out.println(userLoginDTO.getId());
+    return Result.success("hello world admin" + userLoginDTO.getRole());
+  }
 
 }

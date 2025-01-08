@@ -12,30 +12,31 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 public class MenuController {
-    private final MenuService menuService;
-    @PutMapping("/admin/menu")
-    public Result addMenu(@RequestBody MenuDTO menuDTO){
-        menuService.addMenu(menuDTO);
-        return Result.success();
-    }
+  private final MenuService menuService;
 
-    @DeleteMapping("/admin/menu")
-    public Result delMenu(@RequestParam Integer id){
-        menuService.delMenu(id);
-        return Result.success();
-    }
+  @PutMapping("/admin/menu")
+  public Result addMenu(@RequestBody MenuDTO menuDTO) {
+    menuService.addMenu(menuDTO);
+    return Result.success();
+  }
 
-    @PostMapping("/admin/menu")
-    public Result updateMenu(@RequestBody MenuDTO menuDTO){
-        menuService.updateMenu(menuDTO);
-        return Result.success();
-    }
+  @DeleteMapping("/admin/menu")
+  public Result delMenu(@RequestParam Integer id) {
+    menuService.delMenu(id);
+    return Result.success();
+  }
 
-    // 0 顶部链接
-    // 1 底部友情链接
-    @GetMapping("/public/menu")
-    public Result<List<Menu>> getMenuList(Integer type){
-        List<Menu> list = menuService.listMenu(type);
-        return Result.success(list);
-    }
+  @PostMapping("/admin/menu")
+  public Result updateMenu(@RequestBody MenuDTO menuDTO) {
+    menuService.updateMenu(menuDTO);
+    return Result.success();
+  }
+
+  // 0 顶部链接
+  // 1 底部友情链接
+  @GetMapping("/public/menu")
+  public Result<List<Menu>> getMenuList(Integer type) {
+    List<Menu> list = menuService.listMenu(type);
+    return Result.success(list);
+  }
 }

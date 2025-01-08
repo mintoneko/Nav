@@ -12,13 +12,13 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 
 public class PublicApiAuthenticationFilter extends OncePerRequestFilter {
-    @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        System.out.println("这里是默认过滤链...");
-        // TODO 随便给个默认身份
-        Authentication authentication = new TestingAuthenticationToken("username", "password", "ROLE_TOURIST");
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        // 放行
-        filterChain.doFilter(request, response);
-    }
+  @Override
+  protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    System.out.println("这里是默认过滤链...");
+    // TODO 随便给个默认身份
+    Authentication authentication = new TestingAuthenticationToken("username", "password", "ROLE_TOURIST");
+    SecurityContextHolder.getContext().setAuthentication(authentication);
+    // 放行
+    filterChain.doFilter(request, response);
+  }
 }

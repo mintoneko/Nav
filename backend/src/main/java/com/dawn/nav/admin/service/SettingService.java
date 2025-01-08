@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface SettingService {
-    Setting getByKey(String key);
+  Setting getByKey(String key);
 
-    void updateSetting(SettingDTO settingDTO);
+  void updateSetting(SettingDTO settingDTO);
 }

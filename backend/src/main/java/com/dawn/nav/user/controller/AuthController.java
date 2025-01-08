@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class AuthController {
-    private final AuthService authService;
-    @PostMapping("/public/refreshToken")
-    public Result<TokenDTO> refreshToken(@RequestParam String refreshToken) {
-        TokenDTO tokenDTO = authService.refreshToken(refreshToken);
-        return Result.success(tokenDTO);
-    }
+  private final AuthService authService;
+
+  @PostMapping("/public/refreshToken")
+  public Result<TokenDTO> refreshToken(@RequestParam String refreshToken) {
+    TokenDTO tokenDTO = authService.refreshToken(refreshToken);
+    return Result.success(tokenDTO);
+  }
 }

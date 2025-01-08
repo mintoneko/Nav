@@ -10,14 +10,14 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Category {
-    private Long id;
-    private Long parentId;
-    private String name;
-    private String description;
-    private Integer weight;
-    private Integer status;
-    private Long createUser;
-    private LocalDateTime createTime;
-    private Long updateUser;
-    private LocalDateTime updateTime;
+  private Long id;
+  private Long parentId;
+  private String name;
+  private String description;
+  private Integer weight;
+  private Integer status;
+  private Long createUser;
+  private LocalDateTime createTime;
+  private Long updateUser;
+  private LocalDateTime updateTime;
 }

@@ -14,45 +14,47 @@ import javax.naming.AuthenticationException;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(BaseException.class)
-    public Result exceptionHandler(HttpServletResponse response, BaseException e) {
-        response.setStatus(e.getHttpStatus().value());
-        return createResult(e);
-    }
+  @ExceptionHandler(BaseException.class)
+  public Result exceptionHandler(HttpServletResponse response, BaseException e) {
+    response.setStatus(e.getHttpStatus().value());
+    return createResult(e);
+  }
 
-    private Result createResult(BaseException e) {
-        return Result.error(e.getMessage(), e.getCode() == null ? 1 : e.getCode());
-    }
-    // 处理认证异常
-    @ExceptionHandler(AuthenticationException.class)
-    public Result<Void> handleAuthenticationException(AuthenticationException e){
-        e.printStackTrace();
-        return Result.error(StringUtils.hasLength(e.getMessage()) ? e.getMessage() : "认证失败！", 401);
-    }
+  private Result createResult(BaseException e) {
+    return Result.error(e.getMessage(), e.getCode() == null ? 1 : e.getCode());
+  }
 
-    // 处理授权异常
-    @ExceptionHandler(AccessDeniedException.class)
-    public Result<Void> handleAccessDeniedException(AccessDeniedException e){
-        e.printStackTrace();
-        return Result.error(StringUtils.hasLength(e.getMessage()) ? e.getMessage() : "权限不足！");
-    }
+  // 处理认证异常
+  @ExceptionHandler(AuthenticationException.class)
+  public Result<Void> handleAuthenticationException(AuthenticationException e) {
+    e.printStackTrace();
+    return Result.error(StringUtils.hasLength(e.getMessage()) ? e.getMessage() : "认证失败！", 401);
+  }
 
-    @ExceptionHandler(value = MethodArgumentNotValidException.class)
-    public Result handleVaildException(MethodArgumentNotValidException e){
-        BindingResult bindingResult = e.getBindingResult();
-        StringBuffer stringBuffer = new StringBuffer();
-        bindingResult.getFieldErrors().forEach(item ->{
-            //获取错误信息
-            String message = item.getDefaultMessage();
-            //获取错误的属性名字
-            String field = item.getField();
-            stringBuffer.append(field + ":" + message + " ");
-        });
-        return Result.error(stringBuffer + "");
-    }
-    @ExceptionHandler(Exception.class)
-    public Result handleException(Exception e){
-        e.printStackTrace();
-        return Result.error(StringUtils.hasLength(e.getMessage())?e.getMessage():"操作失败！");
-    }
+  // 处理授权异常
+  @ExceptionHandler(AccessDeniedException.class)
+  public Result<Void> handleAccessDeniedException(AccessDeniedException e) {
+    e.printStackTrace();
+    return Result.error(StringUtils.hasLength(e.getMessage()) ? e.getMessage() : "权限不足！");
+  }
+
+  @ExceptionHandler(value = MethodArgumentNotValidException.class)
+  public Result handleVaildException(MethodArgumentNotValidException e) {
+    BindingResult bindingResult = e.getBindingResult();
+    StringBuffer stringBuffer = new StringBuffer();
+    bindingResult.getFieldErrors().forEach(item -> {
+      //获取错误信息
+      String message = item.getDefaultMessage();
+      //获取错误的属性名字
+      String field = item.getField();
+      stringBuffer.append(field + ":" + message + " ");
+    });
+    return Result.error(stringBuffer + "");
+  }
+
+  @ExceptionHandler(Exception.class)
+  public Result handleException(Exception e) {
+    e.printStackTrace();
+    return Result.error(StringUtils.hasLength(e.getMessage()) ? e.getMessage() : "操作失败！");
+  }
 }

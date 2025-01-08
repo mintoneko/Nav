@@ -32,7 +32,7 @@ import static com.dawn.nav.model.constant.RedisConstant.USER_REFRESH_TOKEN_PREFI
  */
 @Component
 public class LoginSuccessHandler extends
-    AbstractAuthenticationTargetUrlRequestHandler implements AuthenticationSuccessHandler {
+        AbstractAuthenticationTargetUrlRequestHandler implements AuthenticationSuccessHandler {
 
   @Autowired
   private ApplicationEventPublisher applicationEventPublisher;
@@ -47,7 +47,7 @@ public class LoginSuccessHandler extends
     this.setRedirectStrategy(new RedirectStrategy() {
       @Override
       public void sendRedirect(HttpServletRequest request, HttpServletResponse response, String url)
-          throws IOException {
+              throws IOException {
         // 更改重定向策略，前后端分离项目，后端使用RestFul风格，无需做重定向
         // Do nothing, no redirects in REST
       }
@@ -76,7 +76,7 @@ public class LoginSuccessHandler extends
     // 一些特殊的登录参数。比如三方登录，需要额外返回一个字段是否需要跳转的绑定已有账号页面
     Object details = authentication.getDetails();
     if (details instanceof Map) {
-      Map detailsMap = (Map)details;
+      Map detailsMap = (Map) details;
       responseData.putAll(detailsMap);
     }
 

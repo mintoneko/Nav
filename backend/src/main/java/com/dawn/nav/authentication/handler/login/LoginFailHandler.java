@@ -22,7 +22,7 @@ public class LoginFailHandler implements AuthenticationFailureHandler {
 
   @Override
   public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
-      AuthenticationException exception) throws IOException, ServletException {
+                                      AuthenticationException exception) throws IOException, ServletException {
     String errorMessage = exception.getMessage();
     response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
     PrintWriter writer = response.getWriter();

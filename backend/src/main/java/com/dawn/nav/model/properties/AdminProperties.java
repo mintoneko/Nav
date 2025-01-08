@@ -3,6 +3,7 @@ package com.dawn.nav.model.properties;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+
 import java.util.List;
 
 @Data
@@ -10,6 +11,6 @@ import java.util.List;
 @ConfigurationProperties(prefix = "admin")
 public class AdminProperties {
 
-    private List<String> email;
+  private List<String> email;
 
 }

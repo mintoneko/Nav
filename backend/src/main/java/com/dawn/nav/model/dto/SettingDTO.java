@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SettingDTO {
-    private String key;
-    private String valueVarchar;
-    private String valueText;
+  private String key;
+  private String valueVarchar;
+  private String valueText;
 }

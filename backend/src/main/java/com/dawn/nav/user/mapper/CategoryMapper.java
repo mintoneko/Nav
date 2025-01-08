@@ -8,19 +8,19 @@ import java.util.List;
 
 @Mapper
 public interface CategoryMapper {
-    List<Category> findAll(Long userId);
+  List<Category> findAll(Long userId);
 
-    void addCategory(Category category);
+  void addCategory(Category category);
 
-    List<CategoryPageVO> findAllPageVOByUserId(Long userId);
+  List<CategoryPageVO> findAllPageVOByUserId(Long userId);
 
-    void deleteById(Long id);
+  void deleteById(Long id);
 
-    void updateCategory(Category category);
+  void updateCategory(Category category);
 
-    Category getCategoryById(Long id);
+  Category getCategoryById(Long id);
 
-    List<Category> getNowUserCategoryList(Long userId);
+  List<Category> getNowUserCategoryList(Long userId);
 
-    List<CategoryPageVO> findAllPageVOByUserIdAndSearchContent(Long id, String searchContent, String orderBy);
+  List<CategoryPageVO> findAllPageVOByUserIdAndSearchContent(Long id, String searchContent, String orderBy);
 }

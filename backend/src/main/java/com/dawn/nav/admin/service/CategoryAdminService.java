@@ -4,7 +4,7 @@ import com.dawn.nav.model.vo.CategoryPageVO;
 import com.dawn.nav.model.vo.PageBeanVO;
 
 public interface CategoryAdminService {
-    PageBeanVO<CategoryPageVO> getCategoryPageList(Integer pageNum, Integer pageSize, String orderBy, String searchContent);
+  PageBeanVO<CategoryPageVO> getCategoryPageList(Integer pageNum, Integer pageSize, String orderBy, String searchContent);
 
-    void deleteCategoryById(Long id);
+  void deleteCategoryById(Long id);
 }

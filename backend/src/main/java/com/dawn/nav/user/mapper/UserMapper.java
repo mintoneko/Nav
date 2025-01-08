@@ -8,19 +8,19 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
-    void add(User user);
+  void add(User user);
 
-    User findUserByEmail(String email);
+  User findUserByEmail(String email);
 
-    void update(User userByEmail);
+  void update(User userByEmail);
 
-    User findUserByUsername(String usernameOrEmail);
+  User findUserByUsername(String usernameOrEmail);
 
-    User findUserById(Long id);
+  User findUserById(Long id);
 
-    User findUserByLinuxDoOpenId(String openId);
+  User findUserByLinuxDoOpenId(String openId);
 
-    User findUserByGitHubOpenId(String openId);
+  User findUserByGitHubOpenId(String openId);
 
-    List<UserVO> getUserVOs(String orderBy, String searchContent);
+  List<UserVO> getUserVOs(String orderBy, String searchContent);
 }

@@ -127,6 +127,7 @@ export default {
       const res = await userApi.resetPwd(resetPwdData.value);
       if (res.code === 0) {
         alertUtil.message('重置密码成功！');
+        window.location.href = '/login';
       }
     };
 

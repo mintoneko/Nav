@@ -37,9 +37,11 @@ export default {
       linuxdoOpenid: '',
       githubOpenid: '',
       createTime: '',
-    })
+    });
     const getNowUser = async () => {
-      const res = await userApi.getCurrentUser();
+      const res = await userApi.getCurrentUser().catch(err => {
+        window.location.href = '/'
+      })
       nowUser.value.id = res.data.id
       nowUser.value.username = res.data.username
       nowUser.value.email = res.data.email
@@ -55,11 +57,10 @@ export default {
       if (res.code == 0) {
         alertUtil.message('修改成功，部分配置在重新登录后生效。', 'success')
       }
-      // getNowUser()
     };
     onMounted(() => {
       getNowUser()
-    })
+    });
     return {
       nowUser,
       getNowUser,

@@ -9,17 +9,17 @@ import com.dawn.nav.model.vo.PageBeanVO;
 import java.util.List;
 
 public interface CategoryService {
-    List<CategoryVO> getCategoryTreeList(String username);
+  List<CategoryVO> getCategoryTreeList(String username);
 
-    List<Category> findAll(Long userId);
+  List<Category> findAll(Long userId);
 
-    PageBeanVO<CategoryPageVO> getCategoryPageList(Integer pageNum, Integer pageSize, String searchContent, String orderBy);
+  PageBeanVO<CategoryPageVO> getCategoryPageList(Integer pageNum, Integer pageSize, String searchContent, String orderBy);
 
-    void addCategory(CategoryDTO categoryDTO);
+  void addCategory(CategoryDTO categoryDTO);
 
-    void updateCategory(CategoryDTO categoryDTO);
+  void updateCategory(CategoryDTO categoryDTO);
 
-    void deleteCategory(Long id);
+  void deleteCategory(Long id);
 
-    List<Category> getCategoryList();
+  List<Category> getCategoryList();
 }

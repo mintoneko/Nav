@@ -35,7 +35,7 @@ public class EmailAuthenticationProvider implements AuthenticationProvider {
   @Override
   public Authentication authenticate(Authentication authentication) throws AuthenticationException {
     // 用户提交的邮箱 + 验证码：
-    String email = (String)authentication.getPrincipal();
+    String email = (String) authentication.getPrincipal();
     String code = (String) authentication.getCredentials();
 
     // 查数据库，匹配用户信息

@@ -10,15 +10,15 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-    private Long id;
-    private String username;
-    private String email;
-    private String phone;
-    private String password;
-    private String nickname;
-    private Integer role;
-    private String githubOpenid;
-    private String linuxdoOpenid;
-    private LocalDateTime createTime;
-    private LocalDateTime updateTime;
+  private Long id;
+  private String username;
+  private String email;
+  private String phone;
+  private String password;
+  private String nickname;
+  private Integer role;
+  private String githubOpenid;
+  private String linuxdoOpenid;
+  private LocalDateTime createTime;
+  private LocalDateTime updateTime;
 }

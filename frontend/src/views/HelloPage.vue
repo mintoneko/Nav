@@ -21,14 +21,12 @@
 <script>
 import HelloWorld from "@/components/HelloWorld.vue";
 import TopBar from "@/components/front/TopBar.vue";
-import BottomIcp from "@/components/front/BottomIcp.vue";
 import { ref, onMounted } from "vue";
 import testApi from "@/api/test";
 export default {
   components: {
     HelloWorld,
     TopBar,
-    BottomIcp
   },
   setup() {
     const msg = ref("Hello World");

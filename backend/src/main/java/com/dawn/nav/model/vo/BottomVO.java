@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BottomVO {
-    private String companyName;
-    private String icp;
-    private String police;
+  private String companyName;
+  private String icp;
+  private String police;
 }

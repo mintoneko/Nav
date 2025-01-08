@@ -15,19 +15,19 @@ import java.io.IOException;
 @Component
 public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 
-    private final ObjectMapper objectMapper;
+  private final ObjectMapper objectMapper;
 
-    public CustomAccessDeniedHandler(ObjectMapper objectMapper){
-        this.objectMapper = objectMapper;
-    }
+  public CustomAccessDeniedHandler(ObjectMapper objectMapper) {
+    this.objectMapper = objectMapper;
+  }
 
-    @Override
-    public void handle(HttpServletRequest request, HttpServletResponse response,
-                       AccessDeniedException accessDeniedException) throws IOException, ServletException {
-        Result result = Result.error("权限不足，拒绝访问！");
-        response.setContentType("application/json;charset=UTF-8");
+  @Override
+  public void handle(HttpServletRequest request, HttpServletResponse response,
+                     AccessDeniedException accessDeniedException) throws IOException, ServletException {
+    Result result = Result.error("权限不足，拒绝访问！");
+    response.setContentType("application/json;charset=UTF-8");
 //        response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        response.getWriter().write(objectMapper.writeValueAsString(result));
-    }
+    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+    response.getWriter().write(objectMapper.writeValueAsString(result));
+  }
 }

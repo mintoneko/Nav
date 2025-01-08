@@ -10,13 +10,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CategoryDTO {
-    private Long id;
-    private Long parentId;
-    @NotBlank
-    private String name;
-    private String description;
-    @NotNull
-    private Integer weight;
-    @NotNull
-    private Integer status;
+  private Long id;
+  private Long parentId;
+  @NotBlank
+  private String name;
+  private String description;
+  @NotNull
+  private Integer weight;
+  @NotNull
+  private Integer status;
 }

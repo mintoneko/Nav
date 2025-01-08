@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Setting {
-    private Integer id;
-    private String key;
-    private String valueVarchar;
-    private String valueText;
+  private Integer id;
+  private String key;
+  private String valueVarchar;
+  private String valueText;
 }

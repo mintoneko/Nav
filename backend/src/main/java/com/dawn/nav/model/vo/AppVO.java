@@ -8,14 +8,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AppVO {
-    private Long id;
-    private String name;
-    private String url;
-    private String iconUrl;
-    private Long categoryId;
-    private String categoryName;
-    private String description;
-    private Integer weight;
-    private Integer status;
-    private Integer clickCount;
+  private Long id;
+  private String name;
+  private String url;
+  private String iconUrl;
+  private Long categoryId;
+  private String categoryName;
+  private String description;
+  private Integer weight;
+  private Integer status;
+  private Integer clickCount;
 }

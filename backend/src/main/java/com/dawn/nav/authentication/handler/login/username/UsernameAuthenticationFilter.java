@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
  * 用户名密码登录
  * AbstractAuthenticationProcessingFilter 的实现类要做的工作：
  * 1. 从HttpServletRequest提取授权凭证。假设用户使用 用户名/密码 登录，就需要在这里提取username和password。
- *    然后，把提取到的授权凭证封装到的Authentication对象，并且authentication.isAuthenticated()一定返回false
+ * 然后，把提取到的授权凭证封装到的Authentication对象，并且authentication.isAuthenticated()一定返回false
  * 2. 将Authentication对象传给AuthenticationManager进行实际的授权操作
  */
 public class UsernameAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
@@ -30,9 +30,9 @@ public class UsernameAuthenticationFilter extends AbstractAuthenticationProcessi
   private static final Logger logger = LoggerFactory.getLogger(UsernameAuthenticationFilter.class);
 
   public UsernameAuthenticationFilter(AntPathRequestMatcher pathRequestMatcher,
-      AuthenticationManager authenticationManager,
-      AuthenticationSuccessHandler authenticationSuccessHandler,
-      AuthenticationFailureHandler authenticationFailureHandler) {
+                                      AuthenticationManager authenticationManager,
+                                      AuthenticationSuccessHandler authenticationSuccessHandler,
+                                      AuthenticationFailureHandler authenticationFailureHandler) {
     super(pathRequestMatcher);
     setAuthenticationManager(authenticationManager);
     setAuthenticationSuccessHandler(authenticationSuccessHandler);
@@ -41,12 +41,12 @@ public class UsernameAuthenticationFilter extends AbstractAuthenticationProcessi
 
   @Override
   public Authentication attemptAuthentication(HttpServletRequest request,
-      HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
+                                              HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
     logger.debug("use UsernameAuthenticationFilter");
 
     // 提取请求数据
     String requestJsonData = request.getReader().lines()
-        .collect(Collectors.joining(System.lineSeparator()));
+            .collect(Collectors.joining(System.lineSeparator()));
     Map<String, Object> requestMapData = JSONUtil.parseToMap(requestJsonData);
     String username = requestMapData.get("username").toString();
     String password = requestMapData.get("password").toString();

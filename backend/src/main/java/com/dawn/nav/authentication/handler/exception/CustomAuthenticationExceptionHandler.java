@@ -23,14 +23,14 @@ public class CustomAuthenticationExceptionHandler implements AuthenticationEntry
 //        this.objectMapper = objectMapper;
 //    }
 
-    @Override
-    public void commence(HttpServletRequest request, HttpServletResponse response,
-                         AuthenticationException authException) throws IOException, ServletException {
-        response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
-        response.setStatus(HttpStatus.UNAUTHORIZED.value());
-        PrintWriter writer = response.getWriter();
-        writer.print(JSONUtil.stringify(Result.error("${authentication.fail:认证失败}", 1)));
-        writer.flush();
-        writer.close();
-    }
+  @Override
+  public void commence(HttpServletRequest request, HttpServletResponse response,
+                       AuthenticationException authException) throws IOException, ServletException {
+    response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
+    response.setStatus(HttpStatus.UNAUTHORIZED.value());
+    PrintWriter writer = response.getWriter();
+    writer.print(JSONUtil.stringify(Result.error("${authentication.fail:认证失败}", 1)));
+    writer.flush();
+    writer.close();
+  }
 }

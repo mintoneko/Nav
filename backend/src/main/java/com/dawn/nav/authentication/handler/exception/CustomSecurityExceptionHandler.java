@@ -24,11 +24,11 @@ import java.io.PrintWriter;
 public class CustomSecurityExceptionHandler extends OncePerRequestFilter {
 
   public static final Logger logger = LoggerFactory.getLogger(
-      CustomSecurityExceptionHandler.class);
+          CustomSecurityExceptionHandler.class);
 
   @Override
   public void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
-      FilterChain filterChain) throws ServletException, IOException {
+                               FilterChain filterChain) throws ServletException, IOException {
     try {
       filterChain.doFilter(request, response);
     } catch (BaseException e) {

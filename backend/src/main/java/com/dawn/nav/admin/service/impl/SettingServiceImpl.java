@@ -12,18 +12,19 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @RequiredArgsConstructor
 public class SettingServiceImpl implements SettingService {
-    private final SettingMapper settingMapper;
-    @Override
-    public Setting getByKey(String key) {
-        return settingMapper.getByKey(key);
-    }
+  private final SettingMapper settingMapper;
 
-    @Override
-    public void updateSetting(SettingDTO settingDTO) {
-        log.info("updateSetting:{}", settingDTO);
-        Setting setting = getByKey(settingDTO.getKey());
-        setting.setValueVarchar(settingDTO.getValueVarchar());
-        setting.setValueText(settingDTO.getValueText());
-        settingMapper.updateSetting(setting);
-    }
+  @Override
+  public Setting getByKey(String key) {
+    return settingMapper.getByKey(key);
+  }
+
+  @Override
+  public void updateSetting(SettingDTO settingDTO) {
+    log.info("updateSetting:{}", settingDTO);
+    Setting setting = getByKey(settingDTO.getKey());
+    setting.setValueVarchar(settingDTO.getValueVarchar());
+    setting.setValueText(settingDTO.getValueText());
+    settingMapper.updateSetting(setting);
+  }
 }

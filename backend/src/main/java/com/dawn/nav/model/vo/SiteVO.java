@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SiteVO {
-    private String name;
-    private String logo;
-    private String githubLogo;
+  private String name;
+  private String logo;
+  private String githubLogo;
 }

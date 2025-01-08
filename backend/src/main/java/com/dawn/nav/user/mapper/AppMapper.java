@@ -9,21 +9,21 @@ import java.util.List;
 
 @Mapper
 public interface AppMapper {
-    void addApp(App app);
+  void addApp(App app);
 
-    App getAppById(Long id);
+  App getAppById(Long id);
 
-    void deleteApp(Long id);
+  void deleteApp(Long id);
 
-    void updateApp(App app);
+  void updateApp(App app);
 
-    List<AppVO> getAppVOsByUserId(Long userId, Integer status, Long categoryId);
+  List<AppVO> getAppVOsByUserId(Long userId, Integer status, Long categoryId);
 
-    List<AppVO> getAppVOsPageNowUser(Long userId, Integer status, Long categoryId, String searchContent);
+  List<AppVO> getAppVOsPageNowUser(Long userId, Integer status, Long categoryId, String searchContent);
 
-    List<AppVO> getHotAppVOs(Long userId);
+  List<AppVO> getHotAppVOs(Long userId);
 
-    List<AppVO> searchAppVOs(String searchContent, Long userId);
+  List<AppVO> searchAppVOs(String searchContent, Long userId);
 
-    List<AppXlsxVO> downLoadAppXlsx(Long userId);
+  List<AppXlsxVO> downLoadAppXlsx(Long userId);
 }

@@ -10,10 +10,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Menu {
-    private Integer id;
-    private String title;
-    private String url;
-    private Integer type;
-    private Integer weight;
-    private LocalDateTime createTime;
+  private Integer id;
+  private String title;
+  private String url;
+  private Integer type;
+  private Integer weight;
+  private LocalDateTime createTime;
 }

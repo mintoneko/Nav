@@ -20,7 +20,7 @@
         </div>
         <ul class="navbar-nav ms-auto d-none d-lg-flex">
           <li class="nav-item header-navbar-top-icon">
-            <a class="nav-link" href="https://github.com/dawnstaryrx/go-nav" target="_blank">
+            <a class="nav-link" href="https://github.com/mintoneko/Nav" target="_blank">
               <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1024 1024" fill="currentColor"
                 aria-label="github icon" style="width:1.25rem;height:1.25rem;vertical-align:middle;">
                 <path
