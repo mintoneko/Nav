@@ -82,6 +82,16 @@ services:
 
 确保上述环境配置成功之后。
 
+> 务必先执行SQL在开启后端，否则会报错。
+
+#### 执行SQL
+
+执行database中的sql文件，建议使用sql连接工具。或者进入docker容器内部执行sql指令
+
+```bash
+docker exec -it mysql mysql -uroot -pmobaisilent
+```
+
 #### 前端打包
 
 ```
