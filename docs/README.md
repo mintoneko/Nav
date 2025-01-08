@@ -117,13 +117,34 @@ location / {
 location /api {
     rewrite ^/api/(.*)$ /$1 break;
     proxy_pass http://localhost:8080;
-
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_connect_timeout 60s;
-    proxy_read_timeout 60s;
 }
 ```
 
 > 使用Nginx Proxy Manager或者Caddy，这里不展开，不了解的建议自行学习
+
+### 5.后台运行
+
+建议使用screen。
+
+- 启动一个新的 screen 会话：
+
+```bash
+screen -S server
+```
+
+- 在会话中运行你的命令：
+
+```java
+java -jar server-0.0.1-SNAPSHOT.jar
+```
+
+按 Ctrl+A，然后按 D 将会话断开（不终止运行）。
+
+断开 SSH 后，项目仍然运行。
+
+- 重新连接到会话：
+
+```bash
+screen -r server
+```
+
