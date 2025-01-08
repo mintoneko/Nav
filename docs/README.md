@@ -126,7 +126,7 @@ location / {
 
 location /api {
     rewrite ^/api/(.*)$ /$1 break;
-    proxy_pass http://localhost:8080;
+    proxy_pass http://127.0.0.1:8080;
 }
 ```
 
@@ -142,6 +142,8 @@ location /api {
 screen -S server
 ```
 
+server只是一个名称，随意取即可。
+
 - 在会话中运行你的命令：
 
 ```java
@@ -155,6 +157,37 @@ java -jar server-0.0.1-SNAPSHOT.jar
 - 重新连接到会话：
 
 ```bash
-screen -r server
+screen -r servers
 ```
+
+### 6.记录一个BUG
+
+docker容器网段IP和宿主机IP不同导致的跨域网关错误。
+
+172.17.0.1:82 -> 127.0.0.1:8080
+
+- 解决方案
+
+修改docker-compose.yml文件，改为host 网络模式
+
+```yaml
+services:
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    network_mode: host
+    ports:
+      - '80:80' # Public HTTP Port
+      - '443:443' # Public HTTPS Port
+      - '81:81' # Admin Web Port
+
+    environment:
+     DISABLE_IPV6: 'true'
+
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+```
+
+
 
