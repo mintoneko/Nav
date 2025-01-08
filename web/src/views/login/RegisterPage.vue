@@ -186,10 +186,6 @@ export default {
   color: #de7622;
 }
 .login-container {
-  background-image: url("@/assets/hk-bg.png");
-  background-size: cover; /* 让背景图片铺满容器 */
-  background-position: center; /* 背景图片居中 */
-  background-repeat: no-repeat; /* 防止背景图片重复 */
   min-height: 100vh; /* 设置容器高度为视口高度，确保图片铺满整个屏幕 */
   /* 使用 Flexbox 来居中内容 */
   display: flex; 

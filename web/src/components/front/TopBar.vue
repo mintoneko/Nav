@@ -97,8 +97,8 @@ export default {
         // 清除 token（根据你的 tokenStore 实现可能需要调整）
         tokenStore.removeToken(); // 假设你有一个 setToken 方法
         userInfoStore.removeInfo();
-        // 重定向到登录页或主页
-        router.push("/login");
+        // 重定向到主页
+        window.location.href = "/";
       }
     };
     const getTopMenu = async () => {
