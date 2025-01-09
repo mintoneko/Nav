@@ -122,7 +122,7 @@ export default {
 }
 
 .active {
-  background-color: #de7622 !important;
+  background-color: #56514d !important;
 }
 
 .nav-white {

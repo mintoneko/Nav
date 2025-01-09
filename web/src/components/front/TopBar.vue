@@ -159,6 +159,7 @@ export default {
 
 <style scoped>
 .header-navbar-container {
+  background-color: #000000;
   width: 100%;
   position: fixed;
   backdrop-filter: blur(6px);
@@ -194,17 +195,17 @@ export default {
 }
 
 .navbar-brand:hover {
-  color: #de7622 !important;
+  color: #000000 !important;
 }
 
 .header-navbar-top-icon {}
 
 .header-navbar-top-item:hover>a {
-  color: #de7622 !important;
+  color: #000000 !important;
 }
 
 .header-navbar-top-icon:hover>a {
-  color: #de7622 !important;
+  color: #000000 !important;
 }
 
 .header-navbar-top-item {
@@ -226,7 +227,7 @@ export default {
   /* 默认宽度为 0 */
   height: 2px;
   /* 下划线的高度 */
-  background-color: #de7622;
+  background-color: #000000;
   /* 下划线的颜色 */
   transition: width 0.3s ease, left 0.3s ease;
   /* 添加动画效果 */
@@ -241,7 +242,7 @@ export default {
 }
 
 .router-link-active {
-  color: #de7622 !important;
+  color: #000000 !important;
 }
 
 .no-caret::after {

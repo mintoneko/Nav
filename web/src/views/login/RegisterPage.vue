@@ -4,7 +4,7 @@
     <div class="card login-container-card noto-serif-sc-text">
       <div class="card-body">
         <div class="row login-container-card-type">
-          <div style="text-align: center;font-size: 20px;font-weight: 900; color: #de7622;">
+          <div style="text-align: center;font-size: 20px;font-weight: 900; color: #de22bc;">
             注册
           </div>
         </div>
@@ -172,6 +172,14 @@ export default {
 </script>
 
 <style scoped>
+.login-container {
+  background-image: linear-gradient(#fffefe 1px, transparent 0), linear-gradient(90deg, #fffefe 1px, transparent 0);
+  background-size: 32px 32px;
+}
+.login-container-card{
+  border-radius: 20px;
+  border: #000000 solid 1px;
+}
 .login-type{
   cursor: pointer;
   text-align: center;
@@ -183,7 +191,7 @@ export default {
   text-align: center;
   font-size: 20px;
   font-weight: 900;
-  color: #de7622;
+  color: #de22bc;
 }
 .login-container {
   min-height: 100vh; /* 设置容器高度为视口高度，确保图片铺满整个屏幕 */
