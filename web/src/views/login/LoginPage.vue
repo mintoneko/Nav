@@ -217,6 +217,11 @@ export default {
 </script>
 
 <style scoped>
+.login-container {
+  background-image: linear-gradient(#fffefe 1px, transparent 0), linear-gradient(90deg, #fffefe 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
 .login-type {
   cursor: pointer;
   text-align: center;
@@ -229,7 +234,7 @@ export default {
   text-align: center;
   font-size: 20px;
   font-weight: 900;
-  color: #de7622;
+  color: #de22bc;
 }
 
 .login-container {
@@ -244,6 +249,7 @@ export default {
 }
 
 .login-container-card {
+  border-radius: 20px;
   border: #000000 solid 1px;
   opacity: 0.8;
 }

@@ -60,43 +60,6 @@ const routes = [
         title: '我的',
         component: () => import('@/views/manage/MyPage.vue'),
       },
-      {
-        path: 'admin',
-        name: 'admin',
-        children: [
-          {
-            path: 'user',
-            name: 'admin-user',
-            title: '用户管理',
-            component: () => import('@/views/admin/UserAdminPage.vue'),
-          },
-          {
-            path: 'menu',
-            name: 'admin-menu',
-            title: '菜单',
-            component: () => import('@/views/admin/MenuPage.vue'),
-          },
-          {
-            path: 'setting',
-            name: 'admin-setting',
-            title: '设置',
-            component: () => import('@/views/admin/SettingPage.vue'),
-          },
-          {
-            path: 'announce',
-            name: 'admin-announce',
-            title: '用户管理',
-            component: () => import('@/views/admin/AnnouncePage.vue'),
-          },
-          {
-            path: 'category',
-            name: 'admin-category',
-            title: '分类超级管理',
-            component: () => import('@/views/admin/CategoryAdminPage.vue'),
-          },
-        ]
-      }
-
     ],
   },
   {

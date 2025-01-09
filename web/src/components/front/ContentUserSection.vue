@@ -1,7 +1,7 @@
 <template>
   <div class="content-section-search-container">
     <form class="d-flex " role="search" style="width: 100%;" @submit="handleSearch">
-      <input ref="searchInput" class="form-control me-2" type="search" placeholder="按任意键开始搜索" aria-label="Search"
+      <input ref="searchInput" class="form-control me-2" type="search" placeholder="找不到？搜索你想要的网站" aria-label="Search"
         style="border: 0px;box-shadow: 0 0 0 0rem;">
       <button class="btn custom-search-btn" type="submit">
         <svg t="1728041224119" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -22,11 +22,11 @@
   <div class="content-section-category-container">
     <span class="capsule" @click="nowCategory = null; nowHotOrAll = 'ALL'; getAllApp();"
       :class="{ 'capsule-active': (!nowCategory && nowHotOrAll === 'ALL') }">
-      全部应用
+      全部网站
     </span>
     <span class="capsule" @click="nowCategory = null; nowHotOrAll = 'HOT'; getHotApp();"
       :class="{ 'capsule-active': (!nowCategory && nowHotOrAll === 'HOT') }">
-      热门应用
+      热门网站
     </span>
     <!-- 遍历顶级父分类 -->
     <span v-for="category in topLevelCategories" :key="category.id" class="capsule"
@@ -243,7 +243,7 @@ export default {
     // 获取全部APP
     const getAllApp = () => {
       appListDTO.value.categoryId = null
-      selectCategory.value = null
+      selectedCategory.value = null
       getAppList()
     }
 
@@ -253,6 +253,7 @@ export default {
       console.log("获取热门APP", res)
       nowCategory.id = "hot"
       appList.value = res.data
+      selectedCategory.value = null
     }
 
     getAppList();
@@ -306,6 +307,7 @@ export default {
   max-width: 1050px;
   margin: auto;
   margin-top: 120px;
+  text-align: center;
 }
 
 .content-section-card-container {
@@ -324,7 +326,7 @@ export default {
   /* 文字颜色 */
   background-color: #fff;
   /* 按钮背景颜色 */
-  border: 0px solid #de7622;
+  border: 0px solid #807b77;
   /* 按钮边框颜色 */
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
   /* 平滑过渡效果 */
@@ -332,9 +334,9 @@ export default {
 
 /* 悬停状态样式 */
 .custom-search-btn:hover {
-  background-color: #de7622;
+  background-color: #54504d;
   /* 悬浮后的背景颜色 */
-  border-color: #de7622;
+  border-color: #4e4a46;
   /* 悬浮后的边框颜色 */
   color: #fff;
   /* 悬浮后的文字颜色 */
@@ -386,17 +388,17 @@ export default {
 
 .capsule:hover,
 .capsule:active {
-  background-color: #de7622;
+  background-color: #4e4b48;
   /* 悬浮和点击后的背景颜色 */
-  border: 1px solid #de7622;
+  border: 1px solid #726c67;
   color: white;
   /* 悬浮和点击后的文字颜色 */
 }
 
 .capsule-active {
-  background-color: #de7622;
+  background-color: #353332;
   /* 悬浮和点击后的背景颜色 */
-  border: 1px solid #de7622;
+  border: 1px solid #575553;
   color: white;
   /* 悬浮和点击后的文字颜色 */
 }
@@ -424,11 +426,11 @@ export default {
   display: flex;
   flex-direction: row;
   background-color: white;
-  border-radius: 6px;
+  border-radius: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
   padding: 10px 13px 10px 13px;
-  border: 1px solid #f0f0f0;
+  border: 1px solid #000000;
 }
 
 .app-card:hover {
@@ -463,7 +465,7 @@ export default {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #de7622;
+  background-color: #625d59;
   color: white;
   font-weight: bold;
   font-size: 1.2rem;

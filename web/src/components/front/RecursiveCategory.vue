@@ -63,17 +63,17 @@ export default {
 
 .capsule:hover,
 .capsule:active {
-  background-color: #de7622;
+  background-color: #585451;
   /* 悬浮和点击后的背景颜色 */
-  border: 1px solid #de7622;
+  border: 1px solid #524e4b;
   color: white;
   /* 悬浮和点击后的文字颜色 */
 }
 
 .capsule-active {
-  background-color: #de7622;
+  background-color: #615d59;
   /* 悬浮和点击后的背景颜色 */
-  border: 1px solid #de7622;
+  border: 1px solid #676461;
   color: white;
   /* 悬浮和点击后的文字颜色 */
 }

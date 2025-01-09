@@ -25,9 +25,7 @@ import org.jsoup.nodes.Element;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
@@ -219,8 +217,25 @@ public class AppServiceImpl implements AppService {
 
   @Override
   public List<AppVO> searchApps(String searchContent, String username) {
+    // 获取 admin 用户和指定用户名的用户
+    User admin = userService.getUserByUsername("admin");
     User user = userService.getUserByUsername(username);
-    return appMapper.searchAppVOs(searchContent, user.getId());
+
+    // 分别获取 admin 和用户的搜索结果
+    List<AppVO> adminApps = appMapper.searchAppVOs(searchContent, admin.getId());
+    List<AppVO> userApps = appMapper.searchAppVOs(searchContent, user.getId());
+
+    // 合并两个列表并去重
+    Set<AppVO> mergedApps = new LinkedHashSet<>();
+    if (adminApps != null) {
+      mergedApps.addAll(adminApps);
+    }
+    if (userApps != null) {
+      mergedApps.addAll(userApps);
+    }
+
+    // 将合并后的结果转换回 List 并返回
+    return new ArrayList<>(mergedApps);
   }
 
   public App getAppById(Long id) {
