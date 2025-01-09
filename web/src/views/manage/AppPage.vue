@@ -3,7 +3,7 @@
     <div class="row">
       <!-- 添加分类按钮 -->
       <div class="col">
-        <button class="btn btn-primary" @click="openModal('addAppModal')">添加应用</button>
+        <button class="btn btn-primary" @click="openModal('addAppModal')">添加网站</button>
       </div>
 
       <!-- 每页条数选择 -->
@@ -33,7 +33,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="addAppModalLabel">添加应用</h5>
+            <h5 class="modal-title" id="addAppModalLabel">添加网站</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -126,25 +126,25 @@
             <td>{{ item.clickCount }}</td>
             <td>
               <button class="btn btn-primary btn-sm" @click="appDTO = item; openModal('updateAppModal')">编辑</button>
-              <!-- 添加编辑应用模态框 -->
+              <!-- 添加编辑网站模态框 -->
               <div class="modal fade text-start" id="updateAppModal" tabindex="-1" aria-labelledby="updateAppModalLabel"
                 aria-hidden="true" @click="getAppPageList()">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="addCategoryModalLabel">编辑应用</h5>
+                      <h5 class="modal-title" id="addCategoryModalLabel">编辑网站</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                         @click="categoryDTO = origincategoryDTO"></button>
                     </div>
                     <div class="modal-body">
                       <form @submit.prevent="submitUpdateApp">
                         <div class="mb-3">
-                          <label for="name" class="form-label">应用名称</label>
-                          <input v-model="appDTO.name" type="text" class="form-control" id="name" placeholder="输入应用名称">
+                          <label for="name" class="form-label">网站名称</label>
+                          <input v-model="appDTO.name" type="text" class="form-control" id="name" placeholder="输入网站名称">
                         </div>
                         <div class="mb-3">
-                          <label for="url" class="form-label">应用地址</label>
-                          <input v-model="appDTO.url" type="text" class="form-control" id="url" placeholder="输入应用地址">
+                          <label for="url" class="form-label">网站地址</label>
+                          <input v-model="appDTO.url" type="text" class="form-control" id="url" placeholder="输入网站地址">
                         </div>
                         <div class="mb-3">
                           <label for="iconUrl" class="form-label">图标</label>
@@ -171,7 +171,7 @@
                         <div class="mb-3">
                           <label for="description" class="form-label">描述</label>
                           <input v-model="appDTO.description" type="text" class="form-control" id="description"
-                            placeholder="输入应用描述信息">
+                            placeholder="输入网站描述信息">
                         </div>
                         <div class="mb-3">
                           <label for="weight" class="form-label">权重</label>
@@ -210,7 +210,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      确认删除应用{{ appDTO.name }}？
+                      确认删除网站{{ appDTO.name }}？
                       <form @submit.prevent="submitDeleteApp">
                         <button type="submit" class="btn btn-primary" style="float: inline-end;">确认删除</button>
                       </form>
@@ -309,7 +309,7 @@ export default {
       try {
         const res = await appApi.addApp(appDTO.value);
         if (res.code === 0) {
-          alertUtil.message('应用添加成功');
+          alertUtil.message('网站添加成功');
           resetForm();  // 清空表单
           modal.hide(); // 关闭模态框
           getAppPageList()
@@ -325,7 +325,7 @@ export default {
       try {
         const res = await appApi.deleteApp(appDTO.value.id);
         if (res.code === 0) {
-          alertUtil.message('应用删除成功');
+          alertUtil.message('网站删除成功');
           resetForm();  // 清空表单
           modal.hide(); // 关闭模态框
           getAppPageList()
@@ -341,7 +341,7 @@ export default {
       try {
         const res = await appApi.updateApp(appDTO.value);
         if (res.code === 0) {
-          alertUtil.message('应用修改成功');
+          alertUtil.message('网站修改成功');
           resetForm();  // 清空表单
           modal.hide(); // 关闭模态框
           getAppPageList()

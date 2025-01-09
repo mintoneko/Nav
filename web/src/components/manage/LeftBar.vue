@@ -13,7 +13,7 @@
         <router-link to="/manage/app"
           :class="currentRoute.path === '/manage/app' ? 'nav-link active' : 'nav-link link-dark'">
           <i class="bi bi-google-play"></i>
-          应用管理
+          网站管理
         </router-link>
       </li>
       <li>
