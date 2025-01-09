@@ -11,7 +11,7 @@
  Target Server Version : 90001 (9.0.1)
  File Encoding         : 65001
 
- Date: 08/01/2025 23:12:37
+ Date: 10/01/2025 00:45:48
 */
 
 -- 创建数据库 `nav`，如果不存在则创建
@@ -74,13 +74,13 @@ INSERT INTO `app` (`id`, `name`, `url`, `icon_url`, `category_id`, `description`
 INSERT INTO `app` (`id`, `name`, `url`, `icon_url`, `category_id`, `description`, `weight`, `click_count`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (58, 'iLoveIMG', 'https://www.iloveimg.com/zh-cn', 'https://www.iloveimg.com/img/favicons-img/favicon-16x16.png', 40, 'iLoveIMG是一款在线处理图片文件的网站。我们的服务完全免费，而且使用简便。网站的功能有：压缩图像文件、调整文件尺寸、裁剪文件，以及转换文件格式等！', 1, 0, 1, 20, '2025-01-08 01:06:21', 20, '2025-01-08 01:08:53');
 INSERT INTO `app` (`id`, `name`, `url`, `icon_url`, `category_id`, `description`, `weight`, `click_count`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (66, '在线Adobe', 'https://acrobat.adobe.com/link/home/', 'https://acrobat.adobe.com/home/a36706b/pwa/pwa-images/acrobat_reader_pro_standard_appicons_macos11_256x256@1x.png', 40, 'Adobe 提供的一个平台，主要用于 PDF 文档的创建、编辑、共享和管理。', 1, 1, 1, 20, '2025-01-08 01:09:32', 20, '2025-01-08 01:12:56');
 INSERT INTO `app` (`id`, `name`, `url`, `icon_url`, `category_id`, `description`, `weight`, `click_count`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (67, 'darw', 'https://app.diagrams.net/', 'https://app.diagrams.net/favicon.ico', 40, 'draw.io is free online diagram software for making flowcharts, process diagrams, org charts, UML, ER and network diagrams', 1, 0, 1, 20, '2025-01-08 01:11:31', 20, '2025-01-08 01:11:31');
-INSERT INTO `app` (`id`, `name`, `url`, `icon_url`, `category_id`, `description`, `weight`, `click_count`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (68, '抖音', 'https://www.douyin.com', 'https://lf1-cdn-tos.bytegoofy.com/goofy/ies/douyin_web/public/favicon.ico', 41, '抖音是由字节跳动公司于2016年9月推出的一款短视频社交应用，主要面向中国大陆、香港和澳门地区运营。￼用户可以通过抖音录制并分享15秒至10分钟的短视频，展示个人才艺、生活片段或创意内容。', 1, 0, 1, 20, '2025-01-08 01:15:26', 20, '2025-01-08 12:11:50');
-INSERT INTO `app` (`id`, `name`, `url`, `icon_url`, `category_id`, `description`, `weight`, `click_count`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (69, '哔哩哔哩', 'https://www.bilibili.com/', 'https://i.111666.best/image/Y2W6x7YJy5nLtwSHs1z1g0.jpeg', 41, '中国领先的年轻人文化社区和视频平台，成立于2009年6月26日。￼最初，B站以ACG（动画、漫画、游戏）内容为主，现已扩展至音乐、舞蹈、科技、生活、时尚等多个领域，形成了多元化的内容生态。', 1, 0, 1, 20, '2025-01-08 12:12:36', 20, '2025-01-08 12:22:14');
+INSERT INTO `app` (`id`, `name`, `url`, `icon_url`, `category_id`, `description`, `weight`, `click_count`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (68, '抖音', 'https://www.douyin.com', 'https://lf1-cdn-tos.bytegoofy.com/goofy/ies/douyin_web/public/favicon.ico', 41, '抖音是由字节跳动公司于2016年9月推出的一款短视频社交应用，主要面向中国大陆、香港和澳门地区运营。 ￼用户可以通过抖音录制并分享15秒至10分钟的短视频，展示个人才艺、生活片段或创意内容。', 1, 0, 1, 20, '2025-01-08 01:15:26', 20, '2025-01-08 12:11:50');
+INSERT INTO `app` (`id`, `name`, `url`, `icon_url`, `category_id`, `description`, `weight`, `click_count`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (69, '哔哩哔哩', 'https://www.bilibili.com/', 'https://i.111666.best/image/Y2W6x7YJy5nLtwSHs1z1g0.jpeg', 41, '中国领先的年轻人文化社区和视频平台，成立于2009年6月26日。 ￼最初，B站以ACG（动画、漫画、游戏）内容为主，现已扩展至音乐、舞蹈、科技、生活、时尚等多个领域，形成了多元化的内容生态。', 1, 0, 1, 20, '2025-01-08 12:12:36', 20, '2025-01-08 12:22:14');
 INSERT INTO `app` (`id`, `name`, `url`, `icon_url`, `category_id`, `description`, `weight`, `click_count`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (70, '腾讯视频', 'https://v.qq.com/', 'https://vfiles.gtimg.cn/wuji_dashboard/xy/starter/4ea79867.png', 41, '中国领先的在线视频媒体平台,海量高清视频在线观看', 1, 0, 1, 20, '2025-01-08 12:23:02', 20, '2025-01-08 12:23:19');
 INSERT INTO `app` (`id`, `name`, `url`, `icon_url`, `category_id`, `description`, `weight`, `click_count`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (71, '爱奇艺', 'https://www.iqiyi.com', 'https://i.111666.best/image/iC2P9eVDUu5FaNAw1TrX6y.png', 41, '爱奇艺（iQIYI）是中国领先的在线视频网站，成立于2010年4月22日，总部位于北京市。最初名为“奇艺”，于2011年11月26日更名为“爱奇艺” ', 1, 0, 1, 20, '2025-01-08 12:28:02', 20, '2025-01-08 12:32:13');
 INSERT INTO `app` (`id`, `name`, `url`, `icon_url`, `category_id`, `description`, `weight`, `click_count`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (72, '知乎', 'https://www.zhihu.com/', 'https://static.zhihu.com/heifetz/favicon.ico', 42, '知乎是一个中文互联网平台，成立于2011年，是一个以问答社区为核心的综合性内容分享平台。用户可以在知乎上提问、回答问题、发表文章、参与讨论，并通过分享知识和观点获得他人的关注与认可。', 1, 1, 1, 21, '2025-01-08 15:21:21', 21, '2025-01-08 19:47:16');
 INSERT INTO `app` (`id`, `name`, `url`, `icon_url`, `category_id`, `description`, `weight`, `click_count`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (73, '微博', 'https://m.weibo.cn/', 'https://m.weibo.cn//favicon.ico', 42, '微博是一个以信息分享、传播与交流为核心的社交媒体平台，由新浪公司于2009年推出，是中国最具影响力的社交网络之一，被称为“中文Twitter”。微博通过文字、图片、视频等形式，为用户提供实时信息和互动的场所。', 1, 1, 1, 21, '2025-01-08 19:48:57', 21, '2025-01-08 19:53:24');
-INSERT INTO `app` (`id`, `name`, `url`, `icon_url`, `category_id`, `description`, `weight`, `click_count`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (74, '百度贴吧', 'https://tieba.baidu.com/index.html', 'https://tb3.bdstatic.com/public/icon/favicon-v2.ico', 42, '百度公司于2003年推出的一个基于兴趣的中文网络社区，它是中国最大的网络论坛之一，也是一个结合兴趣主题、用户讨论和社交功能的平台。', 1, 0, 1, 21, '2025-01-08 19:50:05', 21, '2025-01-08 19:51:12');
+INSERT INTO `app` (`id`, `name`, `url`, `icon_url`, `category_id`, `description`, `weight`, `click_count`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (74, '百度贴吧', 'https://tieba.baidu.com/index.html', 'https://tb3.bdstatic.com/public/icon/favicon-v2.ico', 42, '百度公司于2003年推出的一个基于兴趣的中文网络社区，它是中国最大的网络论坛之一，也是一个结合兴趣主题、用户讨论和社交功能的平台。', 1, 1, 1, 21, '2025-01-08 19:50:05', 21, '2025-01-08 19:51:12');
 INSERT INTO `app` (`id`, `name`, `url`, `icon_url`, `category_id`, `description`, `weight`, `click_count`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (75, '网易新闻', 'https://news.163.com/', 'https://news.163.com/favicon.ico', 42, '新闻,新闻中心,包含有时政新闻,国内新闻,国际新闻,社会新闻,时事评论,新闻图片,新闻专题,新闻论坛,军事,历史,的专业时事报道门户网站', 1, 0, 1, 21, '2025-01-08 19:52:07', 21, '2025-01-08 19:52:29');
 INSERT INTO `app` (`id`, `name`, `url`, `icon_url`, `category_id`, `description`, `weight`, `click_count`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (78, '新华网_让新闻离你更近', 'http://www.news.cn/', 'http://www.news.cn//favicon.ico', 44, '中国主要重点新闻网站,依托新华社遍布全球的采编网络,记者遍布世界100多个国家和地区,地方频道分布全国31个省市自治区,每天24小时同时使用6种语言滚动发稿,权威、准确、及时播发国内外重要新闻和重大突发事件,受众覆盖200多个国家和地区,发展论坛是全球知名的中文论坛。', 1, 1, 1, 23, '2025-01-08 21:30:40', 23, '2025-01-08 21:30:40');
 COMMIT;
@@ -102,7 +102,7 @@ CREATE TABLE `category` (
   `update_time` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `category_parent_idx` (`parent_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='分类表';
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='分类表';
 
 -- ----------------------------
 -- Records of category
@@ -119,26 +119,6 @@ INSERT INTO `category` (`id`, `parent_id`, `name`, `description`, `weight`, `sta
 INSERT INTO `category` (`id`, `parent_id`, `name`, `description`, `weight`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (41, NULL, '影视娱乐', '', 1, 1, 20, '2025-01-08 01:15:11', 20, '2025-01-08 01:15:11');
 INSERT INTO `category` (`id`, `parent_id`, `name`, `description`, `weight`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (42, NULL, '个人收藏', '', 1, 1, 21, '2025-01-08 15:20:50', 21, '2025-01-08 15:20:50');
 INSERT INTO `category` (`id`, `parent_id`, `name`, `description`, `weight`, `status`, `create_user`, `create_time`, `update_user`, `update_time`) VALUES (44, NULL, '热点新闻', '', 1, 1, 23, '2025-01-08 21:29:44', 23, '2025-01-08 21:29:44');
-COMMIT;
-
--- ----------------------------
--- Table structure for menu
--- ----------------------------
-DROP TABLE IF EXISTS `menu`;
-CREATE TABLE `menu` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(50) NOT NULL,
-  `url` varchar(50) NOT NULL,
-  `type` int NOT NULL DEFAULT '0',
-  `weight` int NOT NULL DEFAULT '0',
-  `create_time` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='菜单-顶部导航菜单项，底部友情链接';
-
--- ----------------------------
--- Records of menu
--- ----------------------------
-BEGIN;
 COMMIT;
 
 -- ----------------------------
@@ -180,16 +160,12 @@ CREATE TABLE `user` (
   `password` varchar(255) DEFAULT NULL COMMENT '密码',
   `nickname` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '游客' COMMENT '昵称',
   `role` tinyint(1) NOT NULL DEFAULT '0' COMMENT '角色，0表示禁用用户，1表示用户，2表示管理员',
-  `github_openid` varchar(50) DEFAULT NULL COMMENT 'GithubOpenID，用户在当前应用的唯一标识',
-  `linuxdo_openid` varchar(50) DEFAULT NULL COMMENT 'LinuxDoId',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `email` (`email`) USING BTREE,
   UNIQUE KEY `username` (`username`) USING BTREE,
   UNIQUE KEY `phone` (`phone`) USING BTREE,
-  UNIQUE KEY `wechat_openid` (`github_openid`) USING BTREE,
-  UNIQUE KEY `linuxdo_openid` (`linuxdo_openid`),
   CONSTRAINT `user_chk_1` CHECK ((`role` in (0,1,2)))
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='用户表';
 
@@ -197,10 +173,10 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 BEGIN;
-INSERT INTO `user` (`id`, `username`, `email`, `phone`, `password`, `nickname`, `role`, `github_openid`, `linuxdo_openid`, `create_time`, `update_time`) VALUES (20, 'admin', 'mobaisilent@gmail.com', NULL, '$2a$10$w/speRI4Uoq.VObsM/4ka.sHGdW/AzsPZrdWWHwzf5V26i0mUGDwS', '管理员', 2, NULL, NULL, '2025-01-07 14:02:54', '2025-01-07 21:16:16');
-INSERT INTO `user` (`id`, `username`, `email`, `phone`, `password`, `nickname`, `role`, `github_openid`, `linuxdo_openid`, `create_time`, `update_time`) VALUES (21, '2789221517@qq.com', '2789221517@qq.com', NULL, '$2a$10$2fvmUK1eJwi9GnKcsyryFuZsfypytjMoaJPo7BtyktLL3ZiQqaO6e', '游客', 1, NULL, NULL, '2025-01-07 21:49:57', '2025-01-08 13:40:49');
-INSERT INTO `user` (`id`, `username`, `email`, `phone`, `password`, `nickname`, `role`, `github_openid`, `linuxdo_openid`, `create_time`, `update_time`) VALUES (22, 'nekoclawo@gmail.com', 'nekoclawo@gmail.com', NULL, '$2a$10$RLvgCDUomBE5mNDWqH8KfO5k9W30zGZmT8l/Z0u/mnYBw4lLyFnmm', '游客', 1, NULL, NULL, '2025-01-08 16:31:26', '2025-01-08 16:31:26');
-INSERT INTO `user` (`id`, `username`, `email`, `phone`, `password`, `nickname`, `role`, `github_openid`, `linuxdo_openid`, `create_time`, `update_time`) VALUES (23, '484547374@qq.com', '484547374@qq.com', NULL, '$2a$10$g3KR7pKxnn5juOH5j9goyOd0zbwSDupJgOGazs1tye/ZnLKUPUHUi', '游客', 1, NULL, NULL, '2025-01-08 21:29:00', '2025-01-08 21:29:00');
+INSERT INTO `user` (`id`, `username`, `email`, `phone`, `password`, `nickname`, `role`, `create_time`, `update_time`) VALUES (20, 'admin', 'mobaisilent@gmail.com', NULL, '$2a$10$w/speRI4Uoq.VObsM/4ka.sHGdW/AzsPZrdWWHwzf5V26i0mUGDwS', '管理员', 2, '2025-01-07 14:02:54', '2025-01-07 21:16:16');
+INSERT INTO `user` (`id`, `username`, `email`, `phone`, `password`, `nickname`, `role`, `create_time`, `update_time`) VALUES (21, '2789221517@qq.com', '2789221517@qq.com', NULL, '$2a$10$2fvmUK1eJwi9GnKcsyryFuZsfypytjMoaJPo7BtyktLL3ZiQqaO6e', '游客', 1, '2025-01-07 21:49:57', '2025-01-08 13:40:49');
+INSERT INTO `user` (`id`, `username`, `email`, `phone`, `password`, `nickname`, `role`, `create_time`, `update_time`) VALUES (22, 'nekoclawo@gmail.com', 'nekoclawo@gmail.com', NULL, '$2a$10$RLvgCDUomBE5mNDWqH8KfO5k9W30zGZmT8l/Z0u/mnYBw4lLyFnmm', '游客', 1, '2025-01-08 16:31:26', '2025-01-08 16:31:26');
+INSERT INTO `user` (`id`, `username`, `email`, `phone`, `password`, `nickname`, `role`, `create_time`, `update_time`) VALUES (23, '484547374@qq.com', '484547374@qq.com', NULL, '$2a$10$g3KR7pKxnn5juOH5j9goyOd0zbwSDupJgOGazs1tye/ZnLKUPUHUi', '游客', 1, '2025-01-08 21:29:00', '2025-01-08 21:29:00');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -71,7 +71,6 @@
 import { useTokenStore } from "@/stores/token.js";
 import { useUserInfoStore } from "@/stores/userInfo.js";
 import { useRouter } from 'vue-router';
-import menuApi from '@/api/menu.js';
 import { onMounted, ref } from "vue";
 import settingApi from "@/api/setting";
 
@@ -80,7 +79,6 @@ export default {
     const tokenStore = useTokenStore();
     const token = tokenStore.token.token;
     const router = useRouter()
-    const topMenus = ref([])
     const nowUser = ref({})
     const userInfoStore = useUserInfoStore();
     const site = ref({
@@ -99,15 +97,6 @@ export default {
         userInfoStore.removeInfo();
         // 重定向到主页
         window.location.href = "/";
-      }
-    };
-    const getTopMenu = async () => {
-      try {
-        const res = await menuApi.getMenuList(0);
-        topMenus.value = res.data;
-        console.log(topMenus.value);
-      } catch (error) {
-        console.error(error);
       }
     };
     const getSiteSetting = async () => {
@@ -141,14 +130,12 @@ export default {
     };
     onMounted(() => {
       getSiteSetting();
-      getTopMenu();
       getNowUser();
       setGreeting();
     });
     return {
       token,
       logout,
-      topMenus,
       nowUser,
       greeting,
       site
@@ -198,7 +185,6 @@ export default {
   color: #000000 !important;
 }
 
-.header-navbar-top-icon {}
 
 .header-navbar-top-item:hover>a {
   color: #000000 !important;
