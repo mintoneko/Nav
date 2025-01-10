@@ -6,20 +6,7 @@
           <img class="img-navbar-brand" src="@/assets/logo.png" alt="导航站" width="36" height="36" />
           <router-link class="navbar-brand ms-2 noto-serif-sc-brand" to="/">Nav导航</router-link>
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <!-- <li class="nav-item header-navbar-top-item">
-              <router-link class="nav-link noto-serif-sc-text" aria-current="page" to="/hello">Hello</router-link>
-            </li> -->
-            <li v-for="item in topMenus" class="nav-item header-navbar-top-item">
-              <a class="nav-link noto-serif-sc-text" :href="item.url"> {{ item.title }} </a>
-            </li>
-          </ul>
-        </div>
+
         <ul class="navbar-nav ms-auto d-none d-lg-flex">
           <li v-if="site.githubLogo === 'true'" class="nav-item header-navbar-top-icon">
             <a class="nav-link" href="https://github.com/mintoneko/Nav" target="_blank">

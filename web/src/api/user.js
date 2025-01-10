@@ -22,14 +22,6 @@ const userApi = {
   loginCode: (data) => {
     return request.post('/public/user/login/code', data)
   },
-  // LinuxDo登录
-  loginLinuxDo: (code) => {
-    return request.post('/public/user/login/linuxdo', { code })
-  },
-  // GitHub登录
-  loginGitHub: (code) => {
-    return request.post('/public/user/login/github', { code })
-  },
   // 获取当前用户信息
   getCurrentUser: () => {
     return request.get('/user/current')

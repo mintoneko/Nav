@@ -1,11 +1,5 @@
 #  Vue 3 + Vite
 
-该模板可以帮助你开始使用 Vite 开发 Vue 3 项目。模板使用了 Vue 3 的 <script setup> 单文件组件 (SFCs)。想了解更多，请查看 [script setup 文档](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup)。
-
-关于 Vue 的 IDE 支持，可以在 [Vue 文档的扩展指南](https://vuejs.org/guide/scaling-up/tooling.html#ide-support) 中了解更多信息。
-
-
-
 ## 结构
 
 ### 项目结构
@@ -81,45 +75,47 @@
 
 ### 主页
 
-![image-20250108225808084](images/image-20250108225808084.png)
+![image-20250110074804543](images/image-20250110074804543.png)
 
 #### 顶部栏
 
-![image-20250108225712777](images/image-20250108225712777.png)
+![image-20250110074821200](images/image-20250110074821200.png)
 
 #### 搜索结果
 
-![image-20250108225739385](images/image-20250108225739385.png)
+![image-20250110074834761](images/image-20250110074834761.png)
 
 #### 二级菜单
 
-![image-20250108225827146](images/image-20250108225827146.png)
+![image-20250110074849251](images/image-20250110074849251.png)
 
-![image-20250108225842886](images/image-20250108225842886.png)
+![image-20250110074903986](images/image-20250110074903986.png)
 
 ### 登录界面
 
-![image-20250108225908315](images/image-20250108225908315.png)
+![image-20250110074918237](images/image-20250110074918237.png)
 
 #### 注册
 
-![image-20250108225924465](images/image-20250108225924465.png)
+![image-20250110074930327](images/image-20250110074930327.png)
 
 #### 免密登录
 
-![image-20250108225950341](images/image-20250108225950341.png)
+![image-20250110074943919](images/image-20250110074943919.png)
 
 #### 忘记密码
 
-![image-20250108230009509](images/image-20250108230009509.png)
+![image-20250110075000535](images/image-20250110075000535.png)
 
 #### 登录结果
 
-![image-20250108230208901](images/image-20250108230208901.png)
+![image-20250110075033193](images/image-20250110075033193.png)
+
+![image-20250110075048138](images/image-20250110075048138.png)
 
 #### 验证码登录
 
-![image-20250108231119130](images/image-20250108231119130.png)
+![image-20250110075110471](images/image-20250110075110471.png)
 
 能够通过smtp服务发送验证码。
 
@@ -128,27 +124,29 @@
 
 ### 管理
 
-![image-20250108230227041](images/image-20250108230227041.png)
+![image-20250110075145244](images/image-20250110075145244.png)
 
 #### 添加分类
 
-![image-20250108230242910](images/image-20250108230242910.png)
+![image-20250110075157708](images/image-20250110075157708.png)
 
-#### 添加应用
+#### 添加网站
 
-![image-20250108230304142](images/image-20250108230304142.png)
+![image-20250110075216249](images/image-20250110075216249.png)
 
 非必填项能够通过后端爬取（Callable工具类）
 
 #### 个人信息
 
-![image-20250108230343997](images/image-20250108230343997.png)
+![image-20250110075228707](images/image-20250110075228707.png)
 
 因为项目必须要将admin的导航信息公开展示，所以至少需要一个用户的username（用户名）为admin
 
 ### 非admin
 
-![image-20250108230539629](images/image-20250108230539629.png)
+其他用户的自定义分类
+
+![image-20250110075311370](images/image-20250110075311370.png)
 
 可见该游客能够添加自己的私人导航栏”个人收藏“。
 
